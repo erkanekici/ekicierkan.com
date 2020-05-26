@@ -95,9 +95,8 @@
 		} , { offset: '85%' } );
 	};
 
-
+	//menuButton style
 	var burgerMenu = function() {
-
 		$('.js-colorlib-nav-toggle').on('click', function(event){
 			event.preventDefault();
 			var $this = $(this);
@@ -111,13 +110,10 @@
 				$this.addClass('active');
 				$('body').addClass('offcanvas');
 				
-				var sw = screen.width;				
+				var sw = screen.width;			
 				this.style.left = -(sw-(sw-305)) +"px";
 			}
 		});
-
-
-
 	};
 
 	// Click outside of offcanvass
@@ -210,18 +206,21 @@
 
 
 
-
+	//slayt süre
 	var sliderMain = function() {
 		
 	  	$('#colorlib-hero .flexslider').flexslider({
 			animation: "fade",
-			slideshowSpeed: 5000,
+			slideshowSpeed: 4000,
 			directionNav: true,
 			start: function(){
 				setTimeout(function(){
 					$('.slider-text').removeClass('animated fadeInUp');
 					$('.flex-active-slide').find('.slider-text').addClass('animated fadeInUp');
 				}, 500);
+				$('#colorlib-hero .flexslider .flex-control-nav')[0].getElementsByTagName("li")[0].getElementsByTagName("a")[0].text = ""
+				$('#colorlib-hero .flexslider .flex-control-nav')[0].getElementsByTagName("li")[1].getElementsByTagName("a")[0].text = ""
+				$('#colorlib-hero .flexslider .flex-control-nav')[0].getElementsByTagName("li")[2].getElementsByTagName("a")[0].text = ""
 			},
 			before: function(){
 				setTimeout(function(){
