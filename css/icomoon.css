@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
   font-family: 'icomoon';
   src:  url('fonts/icomoon.eot?6py85u');
   src:  url('fonts/icomoon.eot?6py85u#iefix') format('embedded-opentype'),
@@ -7,12 +7,12 @@
     url('fonts/icomoon.svg?6py85u#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
-}
+} */
 
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon' !important;
-  speak: none;
+  /* speak: none; */
   font-style: normal;
   font-size: large;
   font-weight: normal;

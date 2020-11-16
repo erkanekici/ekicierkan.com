@@ -253,7 +253,7 @@ figure {
 
 #colorlib-hero {
   min-height: 500px;
-  background: #fff url(../images/loader.gif) no-repeat center center;
+  /* background: #fff url(../images/loader.gif) no-repeat center center; */
   width: 100%;
   float: left;
   margin-bottom: 4em;
@@ -414,8 +414,10 @@ body.offcanvas {
   clear: both;
   width: 100%;
   display: block; }
-  @media screen and (max-width: 768px) { /*  SECTION padding ler*/
-    .colorlib-experience,
+  @media screen and (max-width: 768px) 
+  { /*  SECTION padding ler*/
+    
+    /* .colorlib-experience,
     .colorlib-skills,
     .colorlib-education,
     .colorlib-blog,
@@ -423,9 +425,10 @@ body.offcanvas {
     .colorlib-about,
     .colorlib-services,
     .colorlib-contact {
-      /* padding-top: 5em; */
-      /* padding-bottom: 8em;  */
-    } }
+      padding-top: 5em; 
+      padding-bottom: 8em; 
+    } */
+  }
 
 .author-img {
   background-size: cover;
