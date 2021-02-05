@@ -6,7 +6,7 @@ export default class Projects extends Component {
 	render() {
 		return (
 			<div  style={{ padding: "0 1em" }}>
-				<section className="colorlib-work" data-section="projects" style={{ paddingBottom: 0 }}>
+				<section id="projects" className="colorlib-work" data-section="projects" style={{ paddingBottom: 0 }}>
 
 					<div className="colorlib-narrow-content">
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import MediaQuery from 'react-responsive'
 
 export default class Introduction extends Component {
-
+  
   componentDidMount() {
 
     setTimeout(function () {
@@ -41,14 +41,14 @@ export default class Introduction extends Component {
     window.scrollTo(0, document.body.scrollHeight / 2)
   }
 
-  scrollWebPage = event => {
-    //window.scrollTo(0,document.getElementById("capabilities").offsetHeight)
+  scrollWebPageToCapabilities = event => {
+    //window.scrollTo(0,document.getElementById("capabilities").offsetHeight)    
     document.getElementById('capabilities').scrollIntoView()
   }
 
-  scrollMobilePage = event => {
+  scrollWebPageToProjects = event => {
     //window.scrollTo(0,document.getElementById("capabilities").offsetHeight+window.innerHeight/2)
-    document.getElementById('capabilities').scrollIntoView()
+    document.getElementById('projects').scrollIntoView()
   }
 
   render() {
@@ -58,7 +58,7 @@ export default class Introduction extends Component {
 
         <section id="colorlib-hero" className="js-fullheight" data-section="home">
           <div className="flexslider js-fullheight" style={{ backgroundColor: "black", borderRadius: "0px", display: "flex", flexDirection: "column" }}>
-            <div id="vantajs" style={{ display: "flex", flexDirection: "column" }}>
+            <div id="vantajs" style={{ display: "flex", flexDirection: "column", height: "100%" }}>
 
               <div className="animate-box" data-animate-effect="fadeInRight" style={{ margin: "auto", textAlign: "center" }}>
                 <div className="col-md-6 col-md-offset-3 col-md-pull-3 col-sm-12 col-xs-12 slider-text" style={{ opacity: "0.9", backgroundColor: "black", height: "auto", minHeight: "auto", margin: "auto" }}>
@@ -109,11 +109,14 @@ export default class Introduction extends Component {
                         <h1 style={{ color: "white", fontSize: "36px", }}>Yazılım Danışmanlığı<br />Yapmaktayım </h1>
                         <p>
                           <a
+                            onClick={this.scrollWebPageToProjects}
                             style={{ color: "white", borderColor: "white", fontSize: "14px", fontFamily: "Verdana" }}
                             className="btn btn-primary btn-learn"
-                            href="https://github.com/erkanekici?tab=repositories"
-                            target="_blank"
-                            rel="noopener noreferrer">Projelerim <i style={{ fontSize: "16px" }} className="icon-briefcase3" />
+                            //href="https://github.com/erkanekici?tab=repositories"
+                            //target="_blank"
+                            //rel="noopener noreferrer"
+                          >
+                            Projelerim <i style={{ fontSize: "16px" }} className="icon-briefcase3" />
                           </a>
                         </p>
                       </div>
@@ -125,12 +128,15 @@ export default class Introduction extends Component {
                       <div className="desc" style={{ marginTop: "-2vh" }} >
                         <h1 style={{ color: "white", fontSize: "20px", marginBottom: "10px" }}>Yazılım Danışmanlığı<br />Yapmaktayım </h1>
                         <p>
-                          <a
+                          <a                            
+                            onClick={this.scrollWebPageToProjects}
                             style={{ color: "white", borderColor: "white", fontSize: "14px", fontFamily: "Verdana" }}
                             className="btn btn-primary btn-learn"
-                            href="https://github.com/erkanekici?tab=repositories"
-                            target="_blank"
-                            rel="noopener noreferrer">Projelerim <i style={{ fontSize: "16px" }} className="icon-briefcase3" />
+                            //href="https://github.com/erkanekici?tab=repositories"
+                            //target="_blank"
+                            //rel="noopener noreferrer"
+                          >                            
+                            Projelerim <i style={{ fontSize: "16px" }} className="icon-briefcase3" />
                           </a>
                         </p>
                       </div>
@@ -150,8 +156,7 @@ export default class Introduction extends Component {
                         <p>
                           <a
                             //href="#capabilities" data-nav-section="capabilities"
-                            onClick={this.scrollWebPage}
-                            // href="#hizmetler"
+                            onClick={this.scrollWebPageToCapabilities}
                             style={{ width: "auto", textAlign: "left", color: "white", borderColor: "white", fontSize: "14px", fontFamily: "Verdana" }}
                             className="btn btn-primary btn-learn"
                           >
@@ -178,8 +183,7 @@ export default class Introduction extends Component {
                         <p>
                           <a
                             //href="#capabilities" data-nav-section="capabilities"
-                            onClick={this.scrollWebPage}
-                            // href="#hizmetler"
+                            onClick={this.scrollWebPageToCapabilities}                            
                             style={{ width: "auto", textAlign: "left", color: "white", borderColor: "white", fontSize: "11px", fontFamily: "Verdana", marginRight: 0 }}
                             className="btn btn-primary btn-learn"
                           >

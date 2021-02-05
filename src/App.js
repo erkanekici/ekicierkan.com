@@ -46,7 +46,6 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.handleScroll = this.handleScroll.bind(this);
-
   }
 
   componentDidMount() {
@@ -93,17 +92,17 @@ class App extends Component {
     // let scrollTop = event.srcElement.body.scrollTop
 
     //TODO Mobil
-    // if (window.screen.height - (isMobile ? 45 : 185) < window.pageYOffset) {
-      // if (this.state.play) {
-      //   this.setState({ audioButtonImage: `url(${audioIconBlack})` })
-      //   this.setState({ audioButtonImageMobile: `url(${audioIconBlackMobile})` })
-      // }
-      // else {
-      //   this.setState({ audioButtonImage: `url(${noAudioIconBlack})` })
-      //   this.setState({ audioButtonImageMobile: `url(${noAudioIconBlackMobile})` })
-      // }
-    // }
-    // else {
+    if (window.screen.height - (185) < window.pageYOffset) {
+      if (this.state.play) {
+        this.setState({ audioButtonImage: `url(${audioIconBlack})` })
+        //this.setState({ audioButtonImageMobile: `url(${audioIconBlackMobile})` })
+      }
+      else {
+        this.setState({ audioButtonImage: `url(${noAudioIconBlack})` })
+        //this.setState({ audioButtonImageMobile: `url(${noAudioIconBlackMobile})` })
+      }
+    }
+    else {
       if (this.state.play) {
         this.setState({ audioButtonImage: `url(${audioIcon})` })
         this.setState({ audioButtonImageMobile: `url(${audioIconMobile})` })
@@ -112,7 +111,7 @@ class App extends Component {
         this.setState({ audioButtonImage: `url(${noAudioIcon})` })
         this.setState({ audioButtonImageMobile: `url(${noAudioIconMobile})` })
       }
-    // }
+    }
   }
 
   handleAudioButtonClick = event => {
