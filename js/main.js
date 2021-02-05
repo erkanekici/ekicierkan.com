@@ -2,8 +2,6 @@
 	
 	'use strict';
 
-
-
 	var isMobile = {
 		Android: function() {
 			return navigator.userAgent.match(/Android/i);
@@ -59,7 +57,7 @@
 	};
 
 	// Animations
-	var contentWayPoint = function() {
+	var contentWayPoint = function() { 
 		var i = 0;
 		$('.animate-box').waypoint( function( direction ) {
 
@@ -112,27 +110,22 @@
 				
 				var sw = screen.width;			
 				this.style.left = -(sw-(sw-305)) +"px";
+				this.style.display = "block";
 			}
 		});
 	};
 
 	// Click outside of offcanvass
 	var mobileMenuOutsideClick = function() {
-
 		$(document).click(function (e) {
-	    var container = $("#colorlib-aside, .js-colorlib-nav-toggle");
-	    if (!container.is(e.target) && container.has(e.target).length === 0) {
-
-	    	if ( $('body').hasClass('offcanvas') ) {
-
-    			$('body').removeClass('offcanvas');
-    			$('.js-colorlib-nav-toggle').removeClass('active');
-			
+	    	var container = $("#colorlib-aside, .js-colorlib-nav-toggle");
+	    	if (!container.is(e.target) && container.has(e.target).length === 0) {
+	    		if ( $('body').hasClass('offcanvas') ) {
+    				$('body').removeClass('offcanvas');
+    				$('.js-colorlib-nav-toggle').removeClass('active');			
+	    		}	    	
 	    	}
-	    	
-	    }
 		});
-
 		$(window).scroll(function(){
 			if ( $('body').hasClass('offcanvas') ) {				
     			$('body').removeClass('offcanvas');
@@ -140,7 +133,6 @@
 				$('.js-colorlib-nav-toggle')[0].style.left = "-1px";							
 			}			
 		});
-
 	};
 
 	var clickMenu = function() {
@@ -211,7 +203,7 @@
 		
 	  	$('#colorlib-hero .flexslider').flexslider({
 			animation: "fade",
-			slideshowSpeed: 4000,
+			slideshowSpeed: 3000, //animasyın hızı
 			directionNav: true,
 			start: function(){
 				setTimeout(function(){
@@ -228,7 +220,6 @@
 					$('.flex-active-slide').find('.slider-text').addClass('animated fadeInUp');
 				}, 500);
 			}
-
 	  	});
 
 	};
@@ -257,11 +248,8 @@
 				$("#sticky_item").trigger("sticky_kit:detach");
 				$("#sticky_item").trigger("sticky_kit:unstick");
 				
-				$("#sticky_item").stick_in_parent();
-			}
-			
-
-			
+				// $("#sticky_item").stick_in_parent();
+			}		
 
 		});
 
@@ -273,7 +261,7 @@
 
 	var owlCrouselFeatureSlide = function() {
 		$('.owl-carousel').owlCarousel({
-			animateOut: 'fadeOut',
+		   animateOut: 'fadeOut',
 		   animateIn: 'fadeIn',
 		   autoplay: true,
 		   loop:true,

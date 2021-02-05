@@ -12,14 +12,16 @@
 *
 * ======================================================= */
 body {
-  font-family: "Quicksand", Arial, sans-serif;
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 1.8;
-  color: rgba(0, 0, 0, 0.7); }
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.42857;
+  color: #333333;
+  background-color: #fff;
+}
   @media screen and (max-width: 992px) {
     body {
-      font-size: 16px; } }
+      font-size: 14px; } 
+    }
 
 a {
   color: #2c98f0;
@@ -83,6 +85,7 @@ figure {
   padding-bottom: 40px;
   float: left;
   width: 300px;
+  height: 100%;
   position: fixed;
   overflow: scroll;
   z-index: 1001;
@@ -103,7 +106,8 @@ figure {
       -ms-transform: translateX(-300px);
       -o-transform: translateX(-300px);
       transform: translateX(-300px);
-      padding-top: 4em; } }
+      padding-top: 4em; } 
+    }
   #colorlib-aside .author-img {
     width: 150px;
     height: 150px;
@@ -115,13 +119,13 @@ figure {
     border-radius: 50%; }
   #colorlib-aside .email {
     display: block;
-    font-size: 12px;}
+    font-size: 15px;}
   #colorlib-aside .position {
     display: block;
     color: black;
     margin-bottom: 0.5em;
-    font-size: 14px;
-    text-transform: uppercase;}
+    font-size: 24px;}
+    /* text-transform: uppercase;} */
   #colorlib-aside .number {
     display: block;
     margin-bottom: 2em;
@@ -384,7 +388,7 @@ body.offcanvas {
     z-index: 999;
     position: fixed; }
   body.offcanvas #colorlib-main, body.offcanvas .colorlib-nav-toggle {
-    top: 0;
+    /* top: 0; */
     -moz-transform: translateX(300px);
     -webkit-transform: translateX(300px);
     -ms-transform: translateX(300px);
@@ -415,9 +419,8 @@ body.offcanvas {
   width: 100%;
   display: block; }
   @media screen and (max-width: 768px) 
-  { /*  SECTION padding ler*/
-    
-    /* .colorlib-experience,
+  {
+    .colorlib-experience,
     .colorlib-skills,
     .colorlib-education,
     .colorlib-blog,
@@ -425,9 +428,9 @@ body.offcanvas {
     .colorlib-about,
     .colorlib-services,
     .colorlib-contact {
-      padding-top: 5em; 
-      padding-bottom: 8em; 
-    } */
+      padding-top: 0; 
+      padding-bottom: 0;     
+    }
   }
 
 .author-img {
@@ -437,7 +440,7 @@ body.offcanvas {
   position: relative; }
 
 .colorlib-heading {
-  font-size: 18px;
+  font-size: 24px;
   margin-bottom: 2em;
   font-weight: 700;
   text-transform: uppercase;
@@ -448,16 +451,22 @@ body.offcanvas {
     display: block; }
   @media screen and (max-width: 768px) {
     .colorlib-heading {
-      margin-bottom: 3em; } }
+      margin-bottom: 1em;
+      font-size: 20px;
+    }
+  }
 
 .heading-meta {
   margin-bottom: 15px;
   display: block;
-  font-size: 10px;
+  font-size: 16px;
   text-transform: uppercase;
   color: #999999;
   font-weight: 500;
   letter-spacing: 5px; }
+  @media screen and (max-width: 768px) {
+    .heading-meta {
+      font-size: 14px; } }
 
 .about-img {
   width: 100%;
@@ -634,6 +643,9 @@ body.offcanvas {
   font-size: 20px;
   font-family: "Quicksand", Arial, sans-serif;
   font-weight: 500; }
+  @media screen and (max-width: 768px) {
+    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label h2 {
+      font-size: 16px; } }
 
 .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label h2 a {
   color: #000; }
@@ -1398,16 +1410,16 @@ body.offcanvas {
   bottom: -7px; }
 
 .colorlib-nav-toggle:hover i::before {
-  top: -10px; }
+  top: -7px; }
 
 .colorlib-nav-toggle:hover i::after {
-  bottom: -10px; }
+  bottom: -7px; }
 
 .colorlib-nav-toggle.active i {
   background: transparent; }
 
 .colorlib-nav-toggle.active i::before {
-  top: 0;
+  top: 5px;
   -webkit-transform: rotateZ(45deg);
   -moz-transform: rotateZ(45deg);
   -ms-transform: rotateZ(45deg);
@@ -1415,7 +1427,7 @@ body.offcanvas {
   transform: rotateZ(45deg); }
 
 .colorlib-nav-toggle.active i::after {
-  bottom: 0;
+  bottom: -5px;
   -webkit-transform: rotateZ(-45deg);
   -moz-transform: rotateZ(-45deg);
   -ms-transform: rotateZ(-45deg);
@@ -1437,6 +1449,7 @@ body.offcanvas {
   transition: 0.5s; }
   @media screen and (max-width: 768px) {
     .colorlib-nav-toggle {
+      top: -12px;
       opacity: 1;
       visibility: visible; } }
 
@@ -1471,3 +1484,9 @@ body.offcanvas {
 
 .js .animate-box {
   opacity: 0; }
+
+  .project-heading {
+    font-size: 16px;
+    font-weight: 700;
+    font-family: "Quicksand", Arial, sans-serif;
+}
