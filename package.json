@@ -1,0 +1,34 @@
+{
+  "name": "huseyin-erkan-ekici-portfolio-app",
+  "version": "1.0.0",
+  "private": true,
+  "homepage": "https://erkanekici.com",
+  "dependencies": {
+    "gh-pages": "^2.0.1",
+    "howler": "^2.2.0",
+    "react": "^16.8.3",
+    "react-device-detect": "^1.12.1",
+    "react-dom": "^16.8.3",
+    "react-helmet": "^6.1.0",
+    "react-jotform-embed": "^1.1.1",
+    "react-responsive": "^8.0.3",
+    "react-scripts": "2.1.5",
+    "styled-components": "^5.1.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "deploy": "gh-pages -d build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
