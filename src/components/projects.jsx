@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import JotformEmbed from 'react-jotform-embed';
-// import Jot from '../jot';
+import JotformEmbed from './jotformEmbed'
+import MediaQuery from 'react-responsive'
 export default class Projects extends Component {
 
 	render() {
@@ -32,8 +32,12 @@ export default class Projects extends Component {
 								Yapı Kredi İnternet Bankacılığı Ekranları'nın yenilenmesi projesinde yer aldım.
 								Hem önyüz ekranlarının geliştirilmesinde hem de arka planda gerçekleşen iş süreçlerinin uygulamasında görev aldım.																
 							</p>
-
-							<JotformEmbed src="https://form.jotform.com/210195223325951" />
+							<MediaQuery query={`(min-width:581px)`}>
+								<JotformEmbed src="https://form.jotform.com/210195223325951"/>
+							</MediaQuery>
+							<MediaQuery query={`(max-width:580px)`}>
+								<JotformEmbed src="https://form.jotform.com/210195223325951" height="400px"/>
+							</MediaQuery>						
 
 							<h3 className="project-heading">
 								<a
@@ -50,8 +54,12 @@ export default class Projects extends Component {
 								alışveriş kredisi kullandırım imkanı sağlayan OnlineStore uygulamasını responsive olarak geliştirdim.
 								Fibabanka kredi servisleri ile Finberg/Compay ürününün entegrasyonunu gerçekleştirdim.																
 							</p>							
-
-							<JotformEmbed src="https://form.jotform.com/210305055734951" />
+							<MediaQuery query={`(min-width:581px)`}>
+								<JotformEmbed src="https://form.jotform.com/210305055734951"/>
+							</MediaQuery>
+							<MediaQuery query={`(max-width:580px)`}>
+								<JotformEmbed src="https://form.jotform.com/210305055734951" height="400px"/>
+							</MediaQuery>							
 
 							<h3 className="project-heading">
 								{/* <a href="work.html"> */}
@@ -63,9 +71,12 @@ export default class Projects extends Component {
 								dolandırıcılık faaliyetlerini önceden tespit ederek riskli işlemleri engelleme amacıyla
 								hizmet veren FICO ürününün Yapı Kredi için entegrasyonunun sağlanmasında görev aldım.
 							</p>
-
-							<JotformEmbed src="https://form.jotform.com/210305285262952" />
-
+							<MediaQuery query={`(min-width:581px)`}>
+								<JotformEmbed src="https://form.jotform.com/210305285262952"/>
+							</MediaQuery>
+							<MediaQuery query={`(max-width:580px)`}>
+								<JotformEmbed src="https://form.jotform.com/210305285262952" height="400px" />
+							</MediaQuery>
 							
 							{/* <div className="col-md-4 animate-box" data-animate-effect="fadeInLeft">
 								<div className="project" style={{ backgroundImage: 'url(images/y1.jpg)' }}>

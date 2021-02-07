@@ -10,10 +10,11 @@
     "react-device-detect": "^1.12.1",
     "react-dom": "^16.8.3",
     "react-helmet": "^6.1.0",
-    "react-jotform-embed": "^1.1.1",
     "react-responsive": "^8.0.3",
     "react-scripts": "2.1.5",
-    "styled-components": "^5.1.0"
+    "styled-components": "^5.1.0",
+    "prop-types": ">= 15.0.0",
+    "core-js": "^3.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
