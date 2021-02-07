@@ -43,7 +43,7 @@ export default class Introduction extends Component {
 
   scrollWebPageToCapabilities = event => {
     //window.scrollTo(0,document.getElementById("capabilities").offsetHeight)    
-    document.getElementById('capabilities').scrollIntoView()
+    document.getElementById('contact').scrollIntoView()
   }
 
   scrollWebPageToProjects = event => {

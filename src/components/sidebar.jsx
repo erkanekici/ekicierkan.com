@@ -52,7 +52,7 @@ export default class Sidebar extends Component {
           </nav>
           <aside style={{ overflow: "auto" }} id="colorlib-aside" className="border js-fullheight">
             <div className="text-center">
-              <div className="author-img" style={{ backgroundImage: 'url(images/profil.jpg)' }} />
+              <div className="author-img" style={{ backgroundImage: 'url(images/profil.jpg)', backgroundPositionY: '-37px' }} />
               {/* <h1 id="colorlib-logo"><a href="index.html">Hüseyin Erkan Ekici</a></h1> */}
               <h2 style={{ color: "black", textAlign: "center" }}>Hüseyin Erkan Ekici</h2>
               {/* <span className="position">Yazılım Mühendisi</span> */}

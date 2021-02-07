@@ -2,7 +2,7 @@
 
 This project is a personal portfolio project published on https://erkanekici.com.
 
-<img src="https://erkanekici.com/static/media/motto.84284fc6.jpg" width="100%">
+<img src="https://erkanekici.com/static/media/ss_erkanekicicom.png" width="100%">
 
 - [Available Scripts](#available-scripts)
   - [npm start](#npm-start)

@@ -19,27 +19,37 @@ export default class Projects extends Component {
 
 						<div className="row" style={{ paddingRight: 15, paddingLeft: 15, }}>
 							<h3 className="project-heading">
-								{/* <a href="work.html"> */}
+								<a 
+									style={{color: "black", textDecoration: "underline"}}
+									href="https://www.yapikredi.com.tr/"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
 									Yapı Kredi İnternet Bankacılığı Ekranları
-								{/* </a> */}
+								</a>
 							</h3>
 							<p>
 								Yapı Kredi İnternet Bankacılığı Ekranları'nın yenilenmesi projesinde yer aldım.
-								Hem önyüz ekranlarının geliştirilmesinde hem de arka planda gerçekleşen iş süreçlerinin uygulamasında görev aldım.
+								Hem önyüz ekranlarının geliştirilmesinde hem de arka planda gerçekleşen iş süreçlerinin uygulamasında görev aldım.																
 							</p>
 
 							<JotformEmbed src="https://form.jotform.com/210195223325951" />
 
 							<h3 className="project-heading">
-								{/* <a href="work.html"> */}
+								<a
+								 	style={{color: "black", textDecoration: "underline"}}
+									href="https://odememw.fibabanka.com.tr/n11/discountCouponBanner"
+                            		target="_blank"
+                            		rel="noopener noreferrer"
+								>
 									Fibabanka Alışveriş Kredisi Uygulaması
-								{/* </a> */}
+								</a>
 							</h3>
 							<p>
 								n11.com, hepsiburada, Vatan Bilgisayar ve diğer Fibabanka iş ortaklarına ait online alışveriş uygulamaları üzerinden
-								alışveriş kredisi kullandırım imkanı sağlayan OnlineStore uygulamasını responsive olarak geliştirdim.<br/>
-								Fibabanka kredi servisleri ile Finberg/Compay ürününün entegrasyonunu gerçekleştirdim. 
-							</p>
+								alışveriş kredisi kullandırım imkanı sağlayan OnlineStore uygulamasını responsive olarak geliştirdim.
+								Fibabanka kredi servisleri ile Finberg/Compay ürününün entegrasyonunu gerçekleştirdim.																
+							</p>							
 
 							<JotformEmbed src="https://form.jotform.com/210305055734951" />
 

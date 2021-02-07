@@ -5,7 +5,9 @@ import Introduction from './components/introduction'
 import About from './components/about'
 // import Blog from './components/blog'
 // import Timeline from './components/timeline'
-import Capabilities from './components/Capabilities'
+import Capabilities from './components/capabilities'
+import Projects from './components/projects';
+import Contact from './components/contact';
 import MediaQuery from 'react-responsive'
 import backgroundSound from './sounds/backgroundSound.mp3'
 import audioIcon from './images/audioIcon40.png'
@@ -18,7 +20,7 @@ import noAudioIconBlack from './images/noAudioIconBlack40.png'
 import noAudioIconBlackMobile from './images/noAudioIconBlack30.png'
 import { isMobile } from 'react-device-detect';
 import { Howl } from 'howler'; // audio package
-import Projects from './components/projects';
+
 // import {Howler} from 'howler';
 
 // const audio = new Audio(backgroundSound);
@@ -92,14 +94,15 @@ class App extends Component {
     // let scrollTop = event.srcElement.body.scrollTop
 
     //TODO Mobil
-    if (window.screen.height - (185) < window.pageYOffset) {
+    var height = window.innerHeight
+    if (height < window.pageYOffset) {
       if (this.state.play) {
         this.setState({ audioButtonImage: `url(${audioIconBlack})` })
-        //this.setState({ audioButtonImageMobile: `url(${audioIconBlackMobile})` })
+        this.setState({ audioButtonImageMobile: `url(${audioIconMobile})` })
       }
       else {
         this.setState({ audioButtonImage: `url(${noAudioIconBlack})` })
-        //this.setState({ audioButtonImageMobile: `url(${noAudioIconBlackMobile})` })
+        this.setState({ audioButtonImageMobile: `url(${noAudioIconMobile})` })
       }
     }
     else {
@@ -115,19 +118,22 @@ class App extends Component {
   }
 
   handleAudioButtonClick = event => {
+    var height = window.innerHeight
     if (this.state.play) {
+      
       audio.mute(true);
       // audio.muted = true;
-      if (isMobile) {
-        if (window.screen.height - 45 < window.pageYOffset) {
-          this.setState({ audioButtonImageMobile: `url(${noAudioIconBlackMobile})` })
-        }
-        else {
+      
+      if (isMobile) { 
+        // if (height < window.pageYOffset) {
+        //   this.setState({ audioButtonImageMobile: `url(${noAudioIconBlackMobile})` })
+        // }
+        // else {
           this.setState({ audioButtonImageMobile: `url(${noAudioIconMobile})` })
-        }
+        // }
       }
       else {
-        if (window.screen.height - 185 < window.pageYOffset) {
+        if (height < window.pageYOffset) {
           this.setState({ audioButtonImage: `url(${noAudioIconBlack})` })
         }
         else {
@@ -139,15 +145,15 @@ class App extends Component {
       // audio.muted = false;
       audio.mute(false);
       if (isMobile) {
-        if (window.screen.height - 45 < window.pageYOffset) {
-          this.setState({ audioButtonImageMobile: `url(${audioIconBlackMobile})` })
-        }
-        else {
+        // if (height < window.pageYOffset) {
+        //   this.setState({ audioButtonImageMobile: `url(${audioIconBlackMobile})` })
+        // }
+        // else {
           this.setState({ audioButtonImageMobile: `url(${audioIconMobile})` })
-        }
+        // }
       }
       else {
-        if (window.screen.height - 185 < window.pageYOffset) {
+        if (height < window.pageYOffset) {
           this.setState({ audioButtonImage: `url(${audioIconBlack})` })
         }
         else {
@@ -176,7 +182,7 @@ class App extends Component {
       outline: "none",
       opacity: this.state.audioButtonOpacity,
       marginRight: "20px",
-      marginTop: "9px",
+      marginTop: "7px",
       background: this.state.audioButtonImageMobile
     }
     return (
@@ -196,12 +202,12 @@ class App extends Component {
                  </div>
               </MediaQuery>
               <MediaQuery query={`(max-width:768px)`}>
-              <div style={{ position: "fixed", zIndex: "9998", width: "100%", textAlign: "right", display: "block", backgroundColor: "black", minHeight: "46px" }}>
+              <div style={{ position: "fixed", zIndex: "9998", width: "100%", textAlign: "right", display: "block", backgroundColor: "black", minHeight: "43px" }}>
                 <button
                   onClick={this.handleAudioButtonClick}
                   style={audioButtonStyleMobile}
-                  onMouseEnter={this.addOpacity}
-                  onMouseLeave={this.removeOpacity}
+                  // onMouseEnter={this.addOpacity}
+                  // onMouseLeave={this.removeOpacity}
                 />
                  </div>
               </MediaQuery>           
@@ -212,6 +218,7 @@ class App extends Component {
             <Capabilities></Capabilities>
             <Projects></Projects>
             {/* <Blog></Blog>      */}
+            <Contact></Contact>
           </div>
         </div>
       </div>
