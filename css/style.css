@@ -90,7 +90,7 @@ figure {
   overflow: scroll;
   z-index: 1001;
   /*background: #ffc000d1;  #f2f3f7 #ffaf00 */
-  background-image: url(/images/sidebar1.jpg);
+  background-image: url(/images/sidebar.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -1244,6 +1244,21 @@ body.offcanvas {
       background: #2c98f0;
       color: #fff; }
 
+.btn-project {
+  /* background: #2c98f0; */
+  /* color: #fff; */
+  border: 2px solid #2c98f0; }
+  .btn-project:hover, .btn-project:focus, .btn-project:active {
+    background: #44a4f2 !important;
+    border-color: #44a4f2 !important; }
+  .btn-project.btn-outline {
+    background: transparent;
+    color: #2c98f0;
+    border: 2px solid #2c98f0; }
+    .btn-project.btn-outline:hover, .btn-project.btn-outline:focus, .btn-project.btn-outline:active {
+      background: #2c98f0;
+      color: #fff; }
+
 .btn-success {
   background: #5cb85c;
   color: #fff;
@@ -1485,7 +1500,7 @@ body.offcanvas {
 .js .animate-box {
   opacity: 0; }
 
-  .project-heading {
+.project-heading {
     font-size: 16px;
     font-weight: 700;
     font-family: "Quicksand", Arial, sans-serif;
