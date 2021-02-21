@@ -1,11 +1,24 @@
 import React, { Component } from 'react'
 import JotformEmbed from './jotformEmbed'
 import MediaQuery from 'react-responsive'
+import { Carousel } from 'react-responsive-carousel';
+import styles from 'react-responsive-carousel/lib/styles/carousel.min.css';
+import fb1 from '../images/fb1.jpg'
+import fb2 from '../images/fb2.jpg'
+import fb3 from '../images/fb3.png'
+import fr1 from '../images/fr1.png'
+import fr2 from '../images/fr2.png'
+import ykb1 from '../images/ykb1.png'
+import ykb2 from '../images/ykb2.png'
+import ykb3 from '../images/ykb3.png'
+import ykb4 from '../images/ykb4.png'
+import ykb5 from '../images/ykb5.png'
 export default class Projects extends Component {
 
 	render() {
+
 		return (
-			<div  style={{ padding: "0 1em" }}>
+			<div style={{ padding: "0 1em" }}>
 				<section id="projects" className="colorlib-work" data-section="projects" style={{ paddingBottom: 0 }}>
 
 					<div className="colorlib-narrow-content">
@@ -19,8 +32,8 @@ export default class Projects extends Component {
 
 						<div className="row" style={{ paddingRight: 15, paddingLeft: 15, }}>
 							<h3 className="project-heading">
-								<a 
-									style={{color: "black", textDecoration: "underline"}}
+								<a
+									style={{ color: "black", textDecoration: "underline" }}
 									href="https://www.yapikredi.com.tr/"
 									target="_blank"
 									rel="noopener noreferrer"
@@ -30,21 +43,38 @@ export default class Projects extends Component {
 							</h3>
 							<p>
 								Yapı Kredi İnternet Bankacılığı Ekranları'nın yenilenmesi projesinde yer aldım.
-								Hem önyüz ekranlarının geliştirilmesinde hem de arka planda gerçekleşen iş süreçlerinin uygulamasında görev aldım.																
+								Hem önyüz ekranlarının geliştirilmesinde hem de arka planda gerçekleşen iş süreçlerinin uygulamasında görev aldım.
 							</p>
-							<MediaQuery query={`(min-width:581px)`}>
-								<JotformEmbed src="https://form.jotform.com/210195223325951"/>
-							</MediaQuery>
-							<MediaQuery query={`(max-width:580px)`}>
-								<JotformEmbed src="https://form.jotform.com/210195223325951" height="400px"/>
-							</MediaQuery>						
-
+							<div style={{ maxWidth: "800px", height: "auto", margin: "0 auto" }}>
+								<Carousel
+									autoPlay infiniteLoop={true} interval={3000} transitionTime={500}
+									showArrows={true} showIndicators={true} showStatus={false} showThumbs={false}
+									//axis={"vertical"}
+									//centerMode={true}	centerSlidePercentage={80}											
+								>
+									<div>
+										<img src={ykb1} />
+									</div>
+									<div>
+										<img src={ykb2} />
+									</div>
+									<div>
+										<img src={ykb3} />
+									</div>
+									<div>
+										<img src={ykb4} />
+									</div>
+									<div>
+										<img src={ykb5} />
+									</div>
+								</Carousel>
+							</div>
 							<h3 className="project-heading">
 								<a
-								 	style={{color: "black", textDecoration: "underline"}}
+									style={{ color: "black", textDecoration: "underline" }}
 									href="https://odememw.fibabanka.com.tr/n11/discountCouponBanner"
-                            		target="_blank"
-                            		rel="noopener noreferrer"
+									target="_blank"
+									rel="noopener noreferrer"
 								>
 									Fibabanka Alışveriş Kredisi Uygulaması
 								</a>
@@ -52,15 +82,26 @@ export default class Projects extends Component {
 							<p>
 								n11.com, hepsiburada, Vatan Bilgisayar ve diğer Fibabanka iş ortaklarına ait online alışveriş uygulamaları üzerinden
 								alışveriş kredisi kullandırım imkanı sağlayan OnlineStore uygulamasını responsive olarak geliştirdim.
-								Fibabanka kredi servisleri ile Finberg/Compay ürününün entegrasyonunu gerçekleştirdim.																
-							</p>							
-							<MediaQuery query={`(min-width:581px)`}>
-								<JotformEmbed src="https://form.jotform.com/210305055734951"/>
-							</MediaQuery>
-							<MediaQuery query={`(max-width:580px)`}>
-								<JotformEmbed src="https://form.jotform.com/210305055734951" height="400px"/>
-							</MediaQuery>							
-
+								Fibabanka kredi servisleri ile Finberg/Compay ürününün entegrasyonunu gerçekleştirdim.
+							</p>
+							<div style={{ maxWidth: "800px", height: "auto", margin: "0 auto" }}>
+								<Carousel
+									autoPlay infiniteLoop={true} interval={3000} transitionTime={500}
+									showArrows={true} showIndicators={true} showStatus={false} showThumbs={false}
+									//axis={"vertical"}
+									//centerMode={true}	centerSlidePercentage={80}											
+								>
+									<div>
+										<img src={fb1} />
+									</div>
+									<div>
+										<img src={fb2} />
+									</div>
+									<div>
+										<img src={fb3} />
+									</div>									
+								</Carousel>
+							</div>
 							<h3 className="project-heading">
 								{/* <a href="work.html"> */}
 									Yapı Kredi - FICO Dolandırıcılık Önleme Uygulaması Entegrasyonu
@@ -71,13 +112,21 @@ export default class Projects extends Component {
 								dolandırıcılık faaliyetlerini önceden tespit ederek riskli işlemleri engelleme amacıyla
 								hizmet veren FICO ürününün Yapı Kredi için entegrasyonunun sağlanmasında görev aldım.
 							</p>
-							<MediaQuery query={`(min-width:581px)`}>
-								<JotformEmbed src="https://form.jotform.com/210305285262952"/>
-							</MediaQuery>
-							<MediaQuery query={`(max-width:580px)`}>
-								<JotformEmbed src="https://form.jotform.com/210305285262952" height="400px" />
-							</MediaQuery>
-							
+							<div style={{ maxWidth: "800px", height: "auto", margin: "0 auto" }}>
+								<Carousel
+									autoPlay infiniteLoop={true} interval={3000} transitionTime={500}
+									showArrows={true} showIndicators={true} showStatus={false} showThumbs={false}
+									//axis={"vertical"}
+									//centerMode={true}	centerSlidePercentage={80}											
+								>
+									<div>
+										<img src={fr1} />
+									</div>
+									<div>
+										<img src={fr2} />
+									</div>									
+								</Carousel>
+							</div>
 							{/* <div className="col-md-4 animate-box" data-animate-effect="fadeInLeft">
 								<div className="project" style={{ backgroundImage: 'url(images/y1.jpg)' }}>
 									<div className="desc">
