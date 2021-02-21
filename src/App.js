@@ -54,16 +54,16 @@ class App extends Component {
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll);
 
-    ReactGA.initialize('G-322Q278PHB');
-    ReactGA.set({
-      userId: 'newUser'
-    })
-    ReactGA.event({
-      category: "welcome",
-      action: "User pressed the big blue sign up button",
-    });
-    //ReactGA.set({ page: location.pathname }); // Update the user's current page
-    ReactGA.pageview('main'); // Record a pageview for the given page
+    ReactGA.initialize('G-WV7QMTX7MV');
+    // ReactGA.set({
+    //   userId: 'newUser'
+    // })
+    // ReactGA.event({
+    //   category: "welcome",
+    //   action: "User pressed the big blue sign up button",
+    // });
+    ReactGA.set({ page: window.location.pathname + window.location.search });
+    ReactGA.pageview(window.location.pathname); // Record a pageview for the given page
     
     // window.dataLayer.push({
     //   'event': 'virtualPageview',
