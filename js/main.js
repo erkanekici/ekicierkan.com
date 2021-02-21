@@ -292,7 +292,7 @@
 
 
 		mobileMenuOutsideClick();
-		sliderMain();
+		//sliderMain();
 		stickyFunction();
 		owlCrouselFeatureSlide();
 	});
