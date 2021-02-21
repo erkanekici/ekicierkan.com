@@ -11,6 +11,7 @@
     "react": "^16.8.3",
     "react-device-detect": "^1.12.1",
     "react-dom": "^16.8.3",
+    "react-ga": "^3.3.0",
     "react-helmet": "^6.1.0",
     "react-responsive": "^8.0.3",
     "react-responsive-carousel": "^3.2.12",

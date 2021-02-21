@@ -8,6 +8,7 @@ import About from './components/about'
 import Capabilities from './components/capabilities'
 import Projects from './components/projects';
 import Contact from './components/contact';
+import ReactGA from 'react-ga';
 import MediaQuery from 'react-responsive'
 import backgroundSound from './sounds/backgroundSound.mp3'
 import audioIcon from './images/audioIcon40.png'
@@ -52,6 +53,23 @@ class App extends Component {
 
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll);
+
+    ReactGA.initialize(trackingId);
+    ReactGA.set({
+      userId: 'newUser'
+    })
+    ReactGA.event({
+      category: "welcome",
+      action: "User pressed the big blue sign up button",
+    });
+    //ReactGA.set({ page: location.pathname }); // Update the user's current page
+    ReactGA.pageview('main'); // Record a pageview for the given page
+    
+    // window.dataLayer.push({
+    //   'event': 'virtualPageview',
+    //   'virtualPageURL': '/vp/welcome/',
+    //   'userId': 123
+    // });
 
     // Howler.autoUnlock = false;
 
