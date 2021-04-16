@@ -54,7 +54,7 @@ class App extends Component {
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll);
 
-    ReactGA.initialize('G-WV7QMTX7MV');
+    ReactGA.initialize('G-RG30R7V5FV');
     // ReactGA.set({
     //   userId: 'newUser'
     // })
