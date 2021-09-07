@@ -1,6 +1,6 @@
-# erkanekici.com
+# ekicierkan.com
 
-This project is a personal portfolio project published on https://erkanekici.com.
+This project is a personal portfolio project published on https://ekicierkan.com.
 
 <img src="https://ekicierkan.com/images/ss_erkanekicicom.png" width="100%">
 
