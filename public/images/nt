@@ -1,0 +1,895 @@
+
+* https://www.baeldung.com/java-classloaders
+
+*Best practisleri araştırırım:
+
+Neyi araştıracağını ve nasıl araştıracağını bilmezsen kendini bir okyanusta bulursun. O yüzden cevabı aranılan şeyle ilgili alt soruları
+üretebilme kabiliyeti önemlidir ve gerek doğru sonuca ulaşmada zaman kazandırması gerekse doğru tahminleyebilme bakımından kişiye
+üstünlük kazandıran bir özelliktir.
+
+Fizikçi Enrico Fermi'nin üniversitedeyken bir yılda yenilen pizza alanı sorusu gibi tahminleme ile ilgili bir soru. 
+Bu tür sorularda öncelikle cevapla ilşkili istatistiki bir veriye erişebilinir mi ona bakmak lazım,
+mesela haftalık satılan pizza sayısı, bir pizzanın alanı gibi. Bu istatistiklere göre biraz da sezgisel yaklaşmak gerekir.
+Normalde haftalık 100 pizza satılıyorsa festival döneminde 300 olmuştur gibi.
+
+Normalde sezigesel yaklaşıp sayıca çok olmadığını düşündüğüm için googleda istanbul piyano tamiri diye aratır ona göre tahminde bulunurdum :)
+Fakat şu an burada da sezgi ve istatistiksel veriden faydalanıcam. Öncelikle istanbul nüfusu ne kadar, yaklaşık 16 milyon ve
+ortalama her aile 4 kişiden oluşsa 4 milyon aile eder.
+Yine sezgisel olarak çevremde ve toplumumuzdaki piyano çalma ilgisine göre kendi gözlemlerime dayanarak(zaman olmadığı için anket yapamam)
+bu 4 milyon ailenin bin'de 1'inde piyano vardır. 4 bin piyano eder. Her ay %5 yani 200 tanesi arıza yapsa ve
+1 tamirci ayda 10 piyano tamir ediyor olsa 20 tane tamir yeri yeter.
+
+Bu arada Enriconun abd de ilk atom bombası denemesinin gözlemcilerinden olduğu ve orada da elindeki küçük kağıt parçaları
+ile bombanın patladıktan sonraki şok dalgasının kağıtları etkileme süresi ile yaklaşık kağıtları havalandırdığı yüksekliği
+ölçerek patlama şiddeti ile ilgili tahmin yürüttüğüne dair bir şey okumuştum.
+
+----------------------------------------------------------------------------------------------------------------------------------------------- 
+
+Spring core teknolojisi ile büyük projelerde kolay nesne yönetebilme
+Spring Security ile güvenli web siteleri inşa etme
+JPA ile veritabanı bağımsız uygulamalar geliştirebilme
+EJB mi? Spring mi? Yoksa CDI m? sorularına yanıt verebilme ve bu teknolojileri kullanabilme
+JSF 2.2 ile stateless ve HTML 5 uyumlu uygulamalar geliştirebilme
+Google, Amazon ve Yahoo gibi büyük firmaların kullandığı RESTful yaklaşımını, kendi projelerinizde kullanabilme
+Dil bağımsız servis ve haberleşme uygulamaları geliştirebilme
+Hazelcast ile birlikte, verilerinizi sunucularınız üzerinde dağıtıklaştırabilme
+Nginx ile yoğun trafik alan sunucularınızda yük-dengeleme kurabilme
+MongoDB ve ElasticSearch ile büyük ölçekli verileri yönetebilme, performanslı çalışabilme
+
+----------------------------------------------------------------------------------------------------------------------------------------------- 
+ekicierkan.com
+Ruyasoft Uygulamam - GİT - HEROKU
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Springboot Microservis İletişimleri:
+
+1-Senkron -> Resttemplate(deprecated) veya WebClient veya Feign ile rest çağrımı yaparak
+2-Asenkron -> Kafka, rabbitmq gibi kuyruk mekanizmaları ile
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*Mikroservis Sayısı Belirleme:
+
+Eğer mikroservisler birbirlerine bağımlılık gösteriyorsa,
+mesela bir mikroservisin çalışması başka bir servisten alacağı yanıta bağlı ise
+(herhangi bir bozuk özelliğin tüm uygulamayı devre dışı bırakması gerekiyorsa)
+burada mimariyi kontrol ederek fazla mikrolaştırma işlemi olup olmadığı sorgulanmalı.
+
+Yine hiçbir mikroservis başka bir servisin db sine erişme gereksinimi duymamalı
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*List ve Set farkı:
+List verileri sıralı bir şekilde tutar ve sıra numarası(index) ile verilere erişebiliriz. Listeye istediğimiz
+elemanı ekleyebiliriz.
+Set elemanları bir sıralama ile tutmaz, yani bir index yapısı kurmaz.
+Matematikteki kümeler gibi Set yapısı içerisine aynı elemandan iki tane eklemeye izin vermez.
+Set de Null değere sahip tek bir eleman olabilir.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*Collections:
+İçerisinde birden fazla nesne barındırabilen nesnelerdir. Hierarchy için PNG aç
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*Java 8 Yenilikler:
+-Lambda expressions : Kendi başına tanımlanabilen, başka bir fonksiyonun argüman olarak iletilebildiği fonksiyonlardır. 
+ Daha az kod ile geliştirme sağlar.
+-Stream API: Collection’lar üzerinde filter, forEach, map
+-Optional class
+-Concurrency'de Executorlar, CompletableFuture
+* Java 17 Yenilikler:
+- var anahtar sözcüğü(Java 10)
+- Sealed sınıflar: Hangi sınıflar veya modüllerin extend veya implement edilebileceğini ayarlayabiliriz.
+- Record nesnesi: bazı verileri depolamak için tasarlanmış bir tür
+- Switch/case daha okunaklı ve kullanışlı oldu (Java 12)
+- Daha İyi NullPointerException
+- instanceof ile bir değişkenin type kontrolü(Java 14)
+- Yeni HttpClient
+- Performans ve güvenlik açısında güncellemeler.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*hashCode() ve equals():
+Object.hashCode() metodu nesnenin dahili bellek adresini temsil eden bir tamsayı döndürür.
+Farklı nesneler için farklı tamsayılar döndürülür.
+Object.equals() objelerin hashCode larını karşılaştırarak karar verir.
+Eğer aynı değerlere sahip aynı tipteki 2 nesnenin equals metoduyla karşılaştırmasından
+true dönmesi isteniyorsa bu sınıfta equals() override edilmelidir.
+
+Bazen collision olarak bilinen aynı hash'i üreten ama mantıksal olarak farklı iki nesne olabilir.
+Bu durumda bunları ayırt etmek için ikincil bir algoritma kullanılır.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*Bir Uygulamanın 7 Mimari Kriteri: business fitness / time to market / stability / scalability / technology / cost / security
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*Enum:
+Üyeleri vardır, bu üyelere değerler atanır. Miras alamaz, public olamazlar.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*Java da “Write once, Run everywhere” özeliği:
+ .java uzantılı dosyalarımızı JDK içinde bulunan derleyici(javac) ile derleyince .class uzantılı dosyalar oluşur.
+ .class dosyaları içlerinde java bytecode lar içerirler. CPU bu bytecodeları anlamaz. 
+ JVM, derlenen Java programı için ana işlemci birimi olma görevini üstlenir.
+ Bu özelliginden dolayı Java programlarını değişik platformlar üzerinde çalıştırmak mümkündür.
+
+ JRE=JVM + Java Kütüphaneleri
+ JDK=JRE + Compiler + debugger
+-----------------------------------------------------------------------------------------------------------------------------------------------
+ * JVM bileşenler.
+ 1- Class Loader: JVM ilk çalıştığıda sınıfları belleğe yükleme işlemini yapar.
+  ClassNotFoundException ve OutOfMemoryError bu adımda fırlatılabilir.
+ 2- Runtime Area: Method Area, heap, stack gibi bölümleri var. Stack ve Heap RAM’de tutulur.
+  Boyutlarını bildiğimiz değerler(primitive olanlar) stack’te tutulur, her thread için ayrı bir stack oluşturulur.
+  Çalışma zamanında değişkenlik gösterebilecek nesneler ise heap’tedir. Bir uygulamada sadece 1 tane heap vardır.
+  Stack’e kıyasla yavaş çalışır. İçerisindeki değişkenlerin kaldırılması işi Garbage Collector’a aittir.
+  
+ 3- Execution Engine: 
+  Interpreter: Byte code içerisindeki talimatların yorumlanması
+  Garbage Collector: Arkaplanda çalışan otomatik bellek yönetim aracıdır. Bir nesne scope dışına çıktığında,
+  referansı null olunca ya da referansı başka bir yeni nesneye atandığında (yani çöp olduğunda) artık o nesne
+  Heap içerisinde gereksiz yere yer kapladığı için Garbage Collector (GC) devreye girer ve o nesneyi heap’ten kaldırır. 
+  Çalışma şekli:
+	1-Mark: İşaretleme.Nesnelerin referenced/unreferenced durumunun tespit edilmesi
+	2-Sweep: İşaretleme adımında kullanılmadığı anlaşılan nesnelerin temizlenmesi
+ JIT Compiler:
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*Garbage Collector ve Java Heap:
+Java sınıfından new operatörü ile bir nesne oluşturulduğunda, bu nesnenin bilgisayarın hafızasında kapladığı alan Java Heap.
+Java’da heap(bellek) yönetimi arka planda JVM ve onun içinde yer alan Garbage Collector(Çöp Toplayıcısı) ile yapılır.
+Biz yeni bir nesne oluşturmak istediğimizde eğer heap de yer yoksa GC memory de yer açmak için devreye girer
+ve referans edilmeyen yani kullanılmayan nesnelerin kapladığı alan bellekte boşa çıkarılır. C/C++ gibi dillerde bunun 
+kontrolünü biz yaparız.
+Nesnelerin referenced/unreferenced durumunun tespit edilmesine ‘marking’ işlemi denir.
+Sweep: İşaretleme adımında kullanılmadığı anlaşılan nesnelerin temizlenmesidir.
+Runtime sınıfı aracılığıyla JVM bellek ölçümlerini alabiliriz.
+Gereksiz nesneler GC nin finalize metodu ile silinir.
+ XMS(heap için başlangıç ve minimum değeri) ile
+ XMX(heap için sınırlama ve maximum değeri) gibi JVM bellek parametrelerinin varsayılan değerlerini değiştirebiliriz.
+
+*Garbage Collector Çalışması:
+JVM, heap alanını nesenelerin yaşam süresine göre generation adı verilen küçük parçalara bölmüştür.
+ Bunun nedeni sürekli olarak tüm nesnelerin 
+marking(işaretleme) işleminden geçip silme işlemine aday olmasının önüne geçilmek istenmesidir.
+ Böylece daha performanslı bir çözüm olur.
+
+Young-> Tüm yeni nesnelerin oluşturulduğu kuşaktır. Dolduğunda Minor Garbage Collection işleminin tetikler.
+		Bu işlemde sıkıştırmasız silme işlemi uygulanır. Silinen nesnelerden boş kalan alanların referansları tutulur ve
+		yeni bir nesne oluşturulacağı zaman bu boş alana yeni nesneyi referans eder. 
+		Kalan nesneler Old alanına taşınır.
+Old -> Bu kuşak uzun süre hayatta kalan nesnelerin bellekte tutulduğu yerdir. Dolduğunda ise Major Garbage Collection işlemini tetikler.
+	   Bu işlemde sıkıştırmalı silme işlemi uygulanır. Yalnızca boş kalan bellek alanının başlangıç adresi tutulur. Bu sayede performans artışı gözlenir.	   
+	   
+	   # Bütün minor ve major GC işlemleri çalışırken uygulamadaki tüm diğer threadler durur. Bu sebeple GC optimizasyonu önemlidir. 
+	   GC işlemlerinin sayısını düşürerek uygulamamızın daha performanslı ve stabil çalışmasını sağlayabiliriz. 
+Permanent-> Bu kuşak JVM tarafından gerekli olan class ve methodlar hakkında metadataları tutar. 
+			Ayrıca kütüphane sınıfları ve metodları da burada tutulabilir. Bu kuşağın çöp toplama işlemi Full Garbage Collection iledir.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*Kalıtım(Inheritance) nedir ? 
+Bir sınıfın özelliklerini onu extend eden sınıflara aktarmasıdır.
+
+Çoklu kalıtım: C# ve Java'da desteklenmez, bunun için interface kullanılabilir ama C++ da desteklenir.
+Diamond problemi: Hangi üst sınıfın metodunu override edecek?
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*Abstraction:
+ Kod parçalarını ortak özelliklerine göre ayırarak işimize yarayan bölümlerine odaklanmak ve daha anlaşılır
+ daha kullanışlı kod yazmak. Javada soyutlama Abstract class ve İnterface aracılığıyla yapılır.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*Abstract sınıflar: Ortak özellikleri olan nesneleri tek bir çatı altında toplamak için kullanılır.
+				    En az 1 abstract metod varsa sınıf abstract olmalıdır. 
+					Abstract sınıfın abstract metotlarının override edilmesi zorunludur.
+					İçi boş yada dolu metodlar tanımlanabilir.
+				    Abstract sınıflardan new kelimesi ile nesne oluşturulmaz.				    
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*Interface ve Abstract sınıf arasındaki fark nedir? 
+ - Abstract class ı kullanan sınıf onun tüm özelliklerine sahip olur ama 
+ interface i kullanan sınıf onun istenilen özelliklerini kullanır.
+   Yani abstract x is a y durumunda, interface ise x can do y durumunda kullanılır.
+   Örnek: Tesla is a Araba (Tesla bir arabadır) / Tesla can do drive itself (Tesla kendini sürebilir)
+ - Interface içerisinde metodların içerisi boştur fakat abstract sınıflar içerisinde 
+ içi boş veya dolu olan metodlar yazabiliriz.
+ - Tüm Interface üyeleri abstract ve public olarak tanımlıdır.
+ - Bir sınıf birden fazla interface implement edebilir, çoklu kalıtım desteklenir.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*Polymorphism(Çok Biçimlilik):
+Bir üst iki alt sınıfımız olsun. Ana sınıfımızda oluşturduğumuz bir metot üst sınıf tipinde parametre alsın. 
+Biz bu metoda hem üst sınıftan hem de alt sınıflardan oluşturulan nesneleri parametre olarak verebiliriz.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*Encapsulation(Kapsülleme):
+Bir değişken, sınıf veya metodu yanlış kullanımlarımdan korumak için kontrolsüz değişime kapamaktır.
+public, protected ve private anahtar kelimeleri kullanılır. 
+
+public: Sistemdeki bütün sınıfların erişebilmesini sağlar. Yalnızca aynı proje içinden değil, diğer projelerden de erişim sağlanabilir.
+private: Bir değişkenin veya metodun sadece tanımlandığı sınıftan erişilebilmesini sağlar. Private ögelere get-set ile erişilir.
+protected: Sadece tanımlandığı sınıfın içinde ve o sınıftan türetilmiş diğer sınıfların içinde erişilebilir.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*Override:
+Kalıtım veya interface ile aldığımız bir metodu değiştirmek istersek o zaman override etmemiz yani yeniden yazmamız gerekir. Interface için zaten zorunludur.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*Overload:
+Java'da overload ile aynı isimde birden fazla metot yazabiliriz. Bu metotları birbirinden ayıran fark 
+aldıkları parametreler olur.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*Upcasting   : Bir alt sınıf extend ettiği üst sınıfa cast edilebilir. (tip dönüşümü yapılabilir)
+*Downcasting : Bir üst sınıf onu extend eden alt sınıfa cast edilebilir. (tip dönüşümü yapılabilir)
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Final:
+Final Değişken : Değeri değiştirilemez. Static ile beraber constant olarak kullanılabilir.
+Final Metot    : Override edilemez
+Final Class    : Extend edilemez
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Static Değişken : Sınıfa aittir, yani her sınıf nesnesi için tekrar oluşturulmaz. Memory de bir defa oluşturulur.
+Static Metot    : Sınıfa aittir, yani her sınıf nesnesi için tekrar oluşturulmaz. Sınıf ismiyle çağrılabilir. Math sınıfı mettotları gibi
+Static Blok     : Sınıf execute edildiği zaman heap de yerini alır.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Checked Exception	: Compile Time sırasında handle etmemiz gereken exceptionlardır. try-catch bloğu kullanımına zorlar.
+ FileNotFoundException, SQLException
+Unchecked Exception : Derleyicinin handle etmeye zorlamadığı exceptionlardır. NullPointerException, OutOfMemoryError
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Error: handle edilmeyen hatalardır. Unchecked exceptionlar gibi
+Exception: Exception tipindeki hataları try-catch ile ele alabiliriz.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+int 	: ilkel değişken tipidir. Sınıfı olmadığı için herhangi bir metoduda yoktur.
+Integer : Bir sınıftır. parseInt gibi metodları mevcuttur.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*Package (Paketler):
+Aynı amaçla çalışan kodları bir araya toplamak ve başka yerlerde kullanılabilir olmasını sağlamak için.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*Normalizasyon:
+Veri tekrarlarını ortadan kaldırarak performansı ve veri tutarlılığını artırmak için yapılır. 1NF, 2NF... aşamaları. Tablo ayırma, ER diyagramları gibi işlemler.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*AOP:
+Tek bir ilgiyi bir modülde yazıp bağlanması gerektiği yerlere bağlayarak çalıştırmak. Aspect birimleri sayesinde 
+kopyalama işlerinden de sıyrılmış oluyoruz. Asıl sistem kodlarını değiştirmeden ayrı aspect birimleri uygulayarak
+gerektiğinde mevcut sistemin mekanizmasını bozmadan istenilen fonksiyonelliği çıkarabilirsiniz. 
+Yeni fonksiyonaliteleri mevcuta etki vermeden ekleyebilirsiniz.
+AOP ayrıca önemli Agile programlama prensiplerinden “You aren’t gonna need it” (YAGNI) pratik yapmanıza imkan verir.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*Seperation of Concerns:
+Geliştirilecek farklı özellikleri belli birimlere (sınıf ya da modül) 
+ayırarak bu özelliklere sahip birimleri belli alanda (yani paketlere) konuşlandırabiliriz.
+Yapılan bu ayırma işlemi projenin hem okunabilirliğini hem anlaşılabilirliğini ve hem de bakımını kolaylaştıracaktır.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*Spring: Bir framework' tür. AOP metodolojisini kullanarak web tabanlı yazılımlar geliştirilmesini sağlar.
+		 Bu işlevini dependency injection ve inversion of control(IoC) mekanizmaları ile sağlar.
+Inversion of control (IoC): Yazdığımız kod bloğu çalışacağı zaman, framework bizim kodumuzu çağırır ve çalıştırır 
+    daha sonra kontrolün yeniden framework’e geçmesi olayına inversion of control adı verilmektedir.
+*IOC Container: Runtimeda sınıfların bağımlılık olarak tanımladığı nesneleri başlatır ve yapılandırır.
+*BeanFactory : Spring IoC konteynerini temsil eden kök arayüzdür. Yönetilen beanleri içerir ve bunlara getBean
+ metoduyla erişimi sağlar.
+*ApplicationContext: BeanFactory gibi getBean metoduyla Spring IOC konteynerinden bir bean elde etmemizi sağlar fakat
+  BeanFactory yalnızca getBeanmetodunu çağırdığınızda bean'i örneklendirirken ApplicationContext ise konteyner
+  başlatıldığında Singleton bean'i başlatır, getBean'ın çağrılmasını beklemez.
+*DispatcherServlet: Controller lara istek gönderen merkezi servlet
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*Spring Uygulama Portu: server.port ile değiştirilebilir.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*Spring Boot: Spring tabanlı uygulama geliştirmenin en hızlı ve kolay yolu.
+			  En büyük avantajlardan biri herhangi bir XML konfigürasyonuyla uğraşmak zorunda bırakmaması.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*Spring Security: Yetkileri ve rolleri, HTTP istekleri için izin verilen dizinleri vs ayarlamamızı sağlar.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*Dependency Injection: Modülerlik için bağımlılık oluşturacak parçaların ayrılıp, bunların sisteme dışarıdan verilmesi
+    prensibine dayanır. Bağımlı olunan sınıf nesnesini her defasında new ile çağırmak yerine autowired etmek,
+	constructur injection yapmak veya interface olarak implement etmek daha uygundur. Beanler ve anotasyonlar kullanılır.					   
+	Loosely Coupled (Gevşek bağımlılıklı ve esnek) uygulamalar oluşturabiliriz. 
+	Sıklıkla karşılaşılan NullPointerException aslında new operatörüyle gerekli
+	nesnenin oluşturulamadığından yani bağımlılık duyulan nesne sağlanamadığından kaynaklanmaktadır.
+	>>> 3 tür DI vardır: Constructor Injection, Setter Injection, Method Injection
+-----------------------------------------------------------------------------------------------------------------------------------------------		
+*Constructur Injection avantajı: Sınıfın bağımlılıkları enjekte edilmeden asla somutlaştırılmayacağından %100 emin oluruz.
+		constructur injection, test senaryolarımızın yalnızca tüm bağımlılıklar mevcut olduğunda yürütülmesini sağlar.
+		constructurdaki argüman sayısına bakarak sınıfımızın çok fazla sorumluluğu mu var görebiliriz
+-----------------------------------------------------------------------------------------------------------------------------------------------
+--->Hangi NoSQL kullanmalıyız için CAP Teorimine bakılır.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Wrapper: Primitive değişkenlerimizin Class’larıdır.
+BOXING: Primitive değişkeni Wrapper sınıfına manuel dönüştürme işlemidir. Integer number = new Integer(100);
+AUTOBOXING: Primitive değişkeni Wrapper sınıf tipine otomatik dönüştürme işlemidir. Integer number = 100;
+UNBOXING: Wrapper tipindeki değişkeni primitive tipine dönüştürme işlemidir.
+Integer number = 250;
+int unboxing = number.intValue();
+-----------------------------------------------------------------------------------------------------------------------------------------------
+* Neden Integer.valueOf(127) == Integer.valueOf(127) true değerini döner:
+
+Integer.valueOf() methodunun içerisindeki IntegerCache nedeniyle
+-128 ile 127 arasındaki sayılar cache’lenmiştir.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*Thread ve Concurency: 
+ Process: Uygulamaya kavramsal olarak process denilebilir.
+ Thread: Aynı iş ortamında(core'da) birden fazla iş yürütme imkanı sağlar. 
+  Thread'ler arttıkça CPU kullanımı artar. Kernel threads(işletim sistemi threadleri)
+  ve kullanılan dilin kütüphaneleri ile ilişkili user threads'ler vardır.
+ Concurency: Aynı core'da birden çok thread ile iş yapmaktır.
+ Parallelism: Birden çok çekirdek üzerinde aynı anda iş yapılabilmesine denir.
+	Örnek:Bir işçi(Thread) bir havuzu doldurmak için vanayı açtı ve havuzun dolmasını bekliyor.
+	Vanayı açması ve havuzu doldurması bir iştir ama havuz dolarken başka bir işle daha uğraşması “Concurrency'dir.
+	Eğer iki vana olsaydı ve iki işçi iki vanayı aynanda açmış olsalardı buna da “Parallelism” diyecektik.
+
+Oluşturulacak thread sayısı rastgele belirlenmemeli. Uygulamanın çalışacağı cihazın core size’ına göre bir 
+algoritma geliştirilebilmeli,  Bunun için Thread’leri asenkron olarak çalıştırmaya yarayan ExecutorService 
+isimli bir interface var. İhtiyaca göre FixedThreadPool, CachedThreadPool gibi yapılar var.
+
+Future nesnesiyle(Java8 de completableFuture) veya Thread sınıfını extend ederek(extend eden sınıfın her nesnesi
+ yeni thread açar) veya Runnable sınıfını implement ederek.
+
+Bir nesne oluşturalım. Haliyle oluşturduğumuz nesne heap içerisinde yer alacak. Bu heap içerisindeki nesnenin 
+sınıf değişkenine aynı anda 2 ya da daha fazla sayıda farklı thread erişirse metot istendiği gibi sonuç vermeyebilir. 
+Object lock ile(lock ve unlock metodlarıyla) veya counter işleri çin AtomicInteger ile veya synchronized bloğu içinde 
+bir işin tek bir thread tarafından yapılması garanti edilir.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+JPA: Veritabanı tabloları ile Java sınıfları arasında mapping imkanı sağlayarak 
+	veri tabanından bağımsız kodlama yapmamızı sağlayan teknolojinin adı. 
+	Hibernate gibi ORM araçlarının çatısı. 
+	Entityler ile db-app arasında ilişki kurulması sağlanır. 
+	ORM ler ile yazılan kodun veritabanı çeşidiyle bağımlılığı ortadan kalkar, SQL/JDBC bilmek gerekmez.
+	Performans sorunları olabilir. Apache OpenJPA, EclipseLink, Hibernate
+JpaRepository:
+	@Repository
+	public interface UserRepository extends JpaRepository<User, Integer>{
+
+		public User findByEmail(String email);
+	
+		public User findByEmailAndPassword(String email,String password);
+	}
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Spring Data: JPA’deki soyutluğu bir tık öteye taşımış ve MongoDB, Redis, Cassandra gibi NoSQL teknolojilerin de 
+	aralarında bulunduğu birçok	veri kaynağına erişimi aynı API ile sağlamıştır.
+	JPARepository > CrudRepository gibi repository arayüzleri sayesinde hazır metodlar ile sık kullanılan
+	sorgulamalardan, isimden filtreleme yapılabilen özel metodlara kadar birçok kolaylık sağlar.
+	@Entity anotasyonu ile işaretlediğimiz sınıflar için veritabanında tabloları ve sütunlarını OTOMATİK oluşturur.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*Hibernate:
+Nesneye yönelik yazılım ve ilişkisel veritabanı kullanımından doğan bir nesne/ilişkisel eşleme (Object/Relational Mapping) orm aracıdır
+Java sınıflarından veritabanı tablolarına dönüşümü ya da Java veri tiplerinden SQL veri tiplerine dönüşümü gerçekleştirir. 
+Ayrıca veri sorgulama ve veri çekme işlemlerini de kullanıcı için sağlar. Criteria lar ile SQL yazmaktan kurtarmaktadır. hql de kullanılabilir
+JDBC ile de veri tabanına erişmek mümkündür.
+
+Dirty Check: Hibernate her defasında, son loaded snapshot ile entity nesnesinin property’lerini kontrol eder.
+ Değişiklik varsa, update işlemini gerçekleştirir. Bu radonly işlemlerde performans kaybına sebebiyet vermektedir.
+ Update işlemi yapmayacaksak işlem yaptığımız metodu readOnly = true olarak işaretleyerek Dirty Check'i kapatabiliriz.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+JAVA PErformance:
+ 1-Garbage Collector’ın bir nesneyi heap’ten çıkarması için referansının bir yeri göstermiyor olması gerekir
+  ve bu bir miktar zaman alır fakat ilkel değişkenler stack’te tutulduğundan çok daha fazla performans sağlar. 
+ 2-İhtiyaç olmadıkça yeni nesne oluşturmayın
+ 3-Gereksiz autoboxing işlemi yapmayın. Integer.valueOf()'u tercih edin
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*Servlets:
+Web sunucusu üzerinde çalışan ve gönderilen veriye göre sonuç üreten java sınıflarıdır.
+Yazacağımız servletlerin çalıştırılabilmesi için bir servlet containera gereksinim vardır. 
+Servlet container olarak Tomcat örnek verilebilir. Bu servletlere hangi URL ler üzerinden erişileceğini tanımlamak gereklidir.
+Bu tanımları yapmak için web.xml adında bir xml dosyası kullanabilir veya Servlet sınıflarının üstünde anotasyon kullanabiliriz.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*BEAN nedir: Veri tutma amaçlı, yeniden kullanılabilir, serileştirilebilir yazılım bileşenidir.
+			 Bir de Java EE'de var. O bean bir container tarafından yönetilen POJO dur. Birçok container vardır.(JSF,EJB,WEB,CDI...)
+			 Mesela tomcat server sadece web container içerir.			 
+			 1- Serializable olmalı. 2-Parametresiz yapıcı metodu olmalı.  3-Public setter/getter metodlarına sahip olmalı.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*POJO: veritabanındaki ilişkisel yapıya göre hazırlanan ve veri depolamak için kullanılan objelerdir.
+*DAO(Data Access Object): Genellikle veri tabanı üzerinde yapılacak işlemleri yüklenen sınıflardır.
+*DTO(Data Transfer Object): Bu objeler birimler arasında sadece veri aktarımı için kullanılırlar.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*ANOTASYON: Bir veri hakkında bilgi barındıran yapıdır. Konfigürasyon amacıyla ya da bir bileşene ek özellik katmak
+	için kullanılır. Özel ANOTASYONları @interface anotasyonu ile oluşturuyoruz. Bu 
+	özel anotasyonlarda @Retention ile saklama tipini @target ile hedef kullanım yerini belirtiriz.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+@SpringBootApplication --> @Configuration + @EnableAutoConfiguration + @ComponentScan + @EnableWebMvc
+@Configuration --> Üzerine yazıldığı sınıfı application context için bean tanımı kaynağı olarak tagler
+@EnableAutoConfiguration --> SpringBoot a otomatik bean tabanlı ayarları ve çeşitli property settings leri başlatmasını söyler.
+@EnableWebMvc --> Normalde bir Spring MVC uygulaması için bu anotasyonu eklersiniz ancak Spring Boot sınıf yolunda spring-webmvc gördüğünde
+				bunu otomatik olarak ekler. Bu, uygulamayı bir web uygulaması olarak işaretler ve bir DispatcherServlet kurma gibi önemli davranışları etkinleştirir.
+@ComponentScan --> Spring e projedeki belirli anotasyonları(controller gibi) olan sınıflar için paketleri taramasını
+				   ve buluduğunda bunların bean tanımlarını IoC container da oluşturmasını söyler.				
+@EnableAsync --> Spring’in arka plan iş parçacığı havuzunda @Async yöntemlerini çalıştırma yeteneğini açar.
+@RestController = @Controller + @ResponseBody
+@Controller --> Servlet'in WebApplicationContext'inde bir controller bean tanımı yapar ve sınıfı web component olarak işaretler. 
+				Requestleri controller metotlarına maplememizi sağlar.
+@ResponseBody --> Response u otomatik JSON/XML e çevirir. Handler metot response değerinin sunucu uygulaması ortamlarında webresponse gövdesine bağlanması gerekip gerekmediğini belirtir.
+@PostConstruct --> Üzerine eklenen metot hiçbir yerden çağrılmamasına rağmen Spring Konteynır’ı başladığında tetiklenir ve çalıştırılır.
+@PreDestroy -->  Üzerine eklenen metot Spring Konteynır’ı durduğu ya da durdurulduğu anda çalıştırılır.
+@JsonIgnoreProperties --> Sınıftaki tüm değerleri yok saymak isterseniz sınıf düzeyinde @JsonIgnoreProperties kullanabilirsiniz.
+@JsonIgnore --> Sınıftaki tek bir değer göz ardı etmek istiyorsanız ise değer üzerinde bunu kullanabilirsiniz.
+@Service anotasyonu --> Bu anotasyonla işaretli sınıf Spring’in bileşen taraması için algılanıp uygulama içeriğine eklenmeye yarar.
+@ManagedBean --> JSF container tarafından yönetilen bir Java Bean.
+@SuppressWarnings --> Derleyicinin uyarı vereceği durumlarda derleyiciye o kod bloğu için uyarı vermemesi için talimat verebiliriz.
+@Retention --> Bu annotation ile işaretlenmiş annotationın nasıl saklanacağını belirleriz. 3 tip saklama şekli vardır. SOURCE, CLASS ve RUNTIME.
+@Secured --> Method level security için kullanılır.
+@Lazy --> Uygulandığı bean ihtiyaç duyulana kadar yaratılıp enjekte edilmez, böylelikle uygulama ilk ayağa kalkışta hız kazanır.
+@Transactional --> Veri tabanı işlemlerinde grupladığımız küme içerisinde veri tutarlılığı sağlamak için kullanılır.
+ Default Propagation Required'dır. Spring aktif bir transaction olup olmadığını kontrol eder.
+ Eğer yoksa, yeni bir transaction oluşturur. Varsa, var olanı kullanır.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+SpringBoot Maven Plugin: classpathde yer alan tüm jarları toplayıp build ederek tek bir çalıştırılabilir jar file oluşturmaya yarar.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*Maven Vs Gradle --> Maven proje oluşturma, raporlama ve belgeleri yöneten bir yazılım proje yönetimi ve anlama aracı iken
+					Gradle, esneklik ve performansa odaklanan açık kaynaklı bir yapım otomasyon aracıdır.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*Maven Profile: Inline application.properties dosyasının dev/test/prod farklılığını yönetmek için compile ederken maven da tanımlı profile göre işlem yapılmasını sağlar.
+				pom da profile içinde hangi ortamın properties dosyası kullanılacaksa onun directory si verilir. Maven install yapınca derleme ilgili profile bağlı config dosyasına göre yapılır.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*Java Dilinde Serialization (Serileştirme)
+Java’da Serializable interfacini implement eden her nesne bir byte dizisi haline çevrilebilir ve böylece bir java objesi disk üzerinde (bir dosyada) saklanabilir. 
+Daha sonra bu nesne tekrar geri elde edilebilir. Serileştirme özellikle Java Bean’ler ile birlikte kullanılır. 
+Çünkü bir bean kullanıldığında bean’in konfigürasyon bilgileri genellikle tasarım zamanında belirlenir.
+Hatta bu bir network ortamında farklı platformlarda bile gerçekleştirilebilir. 
+Yani windows platformunda serileştirdiğiniz bir nesneyi gidip linux platformunda geri elde edebilirsiniz. Data’nın prezentasyonunu, 
+byte sırasını vs. düşünmenize gerek yoktur. Java tüm bunları çözümleyecektir. Çünkü Java platform bağımsızdır.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*Mikroservis ve Docker ( CI - CD )
+openshift-kubernetes ile konteynır orkestrasyonu
+istio ile request takip
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*DOCKER
+1- platform eşitliği sağlar. Test-dev-prod platformaları eşitler.
+2- Sürekli entegrasyon(CI) kolaylığı sağlar
+3- Mikroservis mimari için kullanılabilir olması
+4- Kaynak verimi sağlar: hypervispor gibi farklı os ihtiyacı yok.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*12 APP Factor: Herokunun eskiden belirlediği mikroservis ve cloud mimarilerine uygun proje geliştirme için prensipleri
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*AGILE: ortamlarda işler büyük bloklar yerine, küçük parçalar şeklinde ele alnır. Bu parçalara backlog adı verilir.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*MOCKITO: Testlere bağımlılıklar yerine, enjekte edilebilecek mock(sahte) nesneleri oluşturmaya yarar. Bunun için anotasyonları veya factory metotlarını kullanabilir.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*Apache Kafka: publish-subscribe messaging system. Veriler sıralı olarak kuyruğa yazılıp consume edilir.
+			   Broker > topic > partiton
+			   dağıtık(distrubuted) bir sistemdir, bir broker çökse bile veri kaybı olmaması ve işlemlerin devam ediyor 
+			   olması gereklidir. Replikasyon bu işi yapar.
+			   Bir defa produce edilerek birden çok consume edebiliriz
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*Apache STORM: yazdığımız kod parçasını çalıştırma aracı
+			   realtime hesaplama yapmaya yarar.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*Hbase: Key Value Store nosql db ( CAP'ın CP si consistency(Tutarlılık) ve partiton(sunucuların arasındaki bağlantı gittiğinde de çalışma), no availability(erişebilirlik))
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*Apache Cassandra: nosql db ( CAP'ın AP si availability(erişebilirlik) ve partiton(sunucuların arasındaki bağlantı gittiğinde de çalışma), no consistency(Tutarlılık))
+			Ölçeklendirilebilir, yüksek boyutlardaki veriyi saklayabilir, hızlı okuma ve yazma, %80 e varan veri sıkıştırma, çoklu veri merkezini destekler
+			Yapılacak sorgulara göre tablolar tasarlanır
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*Hazelcast: Hazelcast verileri ramde bir map şeklinde tutuyor. Verileri kitleme,kuyruğa alma gibi işlemleri de yapabiliyoruz.
+			Veriler ram’de tutulurken bir o kadarı da backup şeklinde yine bellekler arasında paylaştırılıp veri kaybını en aza
+			indirmeyi amaçlıyor. Queue, List, Map, Set, Lock gibi farklı veri tipleri de tutabiliyor.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*Swagger: Web api dokümantasyon
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*Cache: Sistem hızını artıran bir mekanizma. Uygulamada sık kullanılan verilerin her defasında db den veya 
+	remote servislerden alınması gerekmiyorsa önbelleğe alınması uygulama hızını artırır. 
+	@EnableCaching ve @Cacheable ile key-value şekline map gibi cacheleme veya Redis
+	Main methodumuza @EnableCaching yazarak uygulamımıza bu özelliği kazandırmış oluyoruz. İstediğimiz zaman bu özelliği devre dışı bırakmak istersek
+	Caching ile işaretlediğimiz tüm anotasyonları silmemize gerek yok. Spring Boot uygulamamızın application.properties dosyasına spring.cache.type=none yazmak yeterli olacaktır.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*Redis: nosql db. Verileri RAM üzerinde saklar, performans açısından büyük bir artış sağlar. 
+	İstersek belirli zaman aralıkları ile verileri disk’e kaydeder bu sayede veri tutarlılığı da sağlanabilir. 
+	Cache,session,kuyruk işlemlerinde kullanılır.
+	Ram ihtiyacını artırır, cpu kullanımını ve IO işlemlerini azaltır. Join işlemlerini desteklemez.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+S: Single Responsibility: Bir sınıfın yapması gereken bir işi olmalıdır. Sadece o işle ilgili refactor gerektirmelidir. High cohesion olmalıdır
+O: Open-Closed Prncible: Bir sınıf davranışlarını korumalı ama geliştirmeye de açık olmalıdır.
+L: Liskov Substition: Alt sınıflardan oluşan nesneler üst sınıfın nesneleri ile yer değiştirdikleri zaman, aynı davranışı sergilemelidir. 
+   Üst sınıfa ait abstract bir method alt sınıfların birinde exception return edip diğerlerinde string yanıt dönüyorsa bu uygun olmaz. 
+   Bu abstract method üst sınıftan ayrılarak interface olarak eklenmelidir ki sadece ihtiyaç duyulan uygun sınıflarca bu özellik kullanılsın 
+I: Interface Segregation: Tüm sorumlulukları tek bir arayüzde kullanmak yerine özelleştirilmiş interfaceler kullanılmalı
+D: Dependency Inversion: Yüksek seviye sınıflarda bir davranış değiştiğinde, alt seviye davranışların bu değişime uyum sağlaması gerekir.
+	Ancak, düşük seviye sınıflarda bir davranış değiştiğinde, üst seviye sınıfların davranışında bir bozulma meydana gelmemelidir.
+	özellikle soyut sınıfların somut sınıflara bağımlılıkları soyutlanarak ortadan kaldırılmalıdır. İnterface ve anotasyon kullanılırak yapılır.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Coupling: İki sınıfın birbirine olan Bağımlılığı. LOW olması beklenir.
+Cohesion: Bir sınıfın oluşturulma amacını ne kadar temsil ettiğini gösterir. HIGH olması beklenir.
+		  Matematik işlemi yapan bir sınıfa file işlemleri yapan bir metod daha eklediğimiz zaman high cohesion prensibini kırmış oluyoruz.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+* ConcurrentLinkedQueue: bağlı node'ları temel alan, thread-safe bir kuyruktur. 
+	Çünkü kuyruk FIFO tekniğini (ilk giren ilk çıkar) takip ediyor.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*Singleton Pattern: 
+SessionFactory sınıfları yaratımı masraflı olduğundan uygulama boyunca bir class tipinden sadece bir tane yaratılacağını garanti eder.
+Singleton olması istenen class içinde getInstance() metoduyla bu pattern ona uygulanır. private constructor ile.
+	private static SınıfAdı instance = null; 
+	protected SınıfAdı() {
+	}
+	public static SınıfAdı getInstance() 
+    { 
+        if (instance == null) 
+            instance = new SınıfAdı();
+  
+        return instance; 
+    } 
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*MVC Pattern: 
+Model(Veritabanı) / View(Arayüz) / Controller(Verilerin İşlendiği Katman)
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*Builder Pattern:
+Karmaşık sınıfların nesne yaratım sürecini soyutlayan bir pattern’dir.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*Adapter Pattern:
+ Back Office ekranları üzerinden bildirim göndermek istiyorsunuz. Bu bildirim eposta olabilir,
+ sms olabilir ya da mobil uygulamanızı kullanan kullanıcılara mobil bildirim olabilir fakat Eposta ve SMS Notification'ı
+ implemente ederken MobilAppNotification etmiyor. O zaman Notification'ı implemente eden bir MobilAppNotifcationAdapter sınıfı oluşturalım.
+ Daha sonra adapter içerisinde, “MobilAppNotification” sınıfını enjekte edelim. send metodunu override ederek içerisinden 
+ MobilAppNotification'a ait metodu çağıralım. Böylece adaptasyonu sağlamış olduk ve Sms ile Email’de olduğu gibi
+ Notification'ın send metodunu kullanabiliriz.
+-----------------------------------------------------------------------------------------------------------------------------------------------  
+* Strategy Pattern:
+Önyüz uygulamamda bir sayfanın raporlaması için müşteriler PDF/EXCEL/XML gibi 
+türlerde belge oluşturmak istiyorlar. İleride belki HTML türünde de rapor talep edilecek.
+Bunun için servis veya servisler oluşturmak istiyorum. hangi sınıfları ve pathleri oluştururdunuz?
+-----------------------------------------------------------------------------------------------------------------------------------------------
+* Object Pool Design Pattern:
+Objeleri tekrar tekrar yaratmak yerine, yaratılan objelerin yeniden kullanılmasıdır.
+Böylece performans sorunlarının önüne geçilmeye çalışılır.
+Örnek: Başlangıçta yeterli sayıda obje yaratılıp bir singleton class olarak oluşturduğumuz pool objesine koyulur.
+Kullanılmak istenildiğinde bu pool’dan bir obje alınır ve obje’nin işi bittiğinde pool’a geri bırakılır.
+Obje create/destroy işlemleri olmadığı için fazla işlem gücü tüketmez.
+Pool yapısını implemente etmek için veri yapısı olarak Stack kullanılabilir.
+Pool’da hiç obje kalmaması durumunda yenisini oluşturup return ederek pool’u ihtiyaca göre genişletedebiliriz.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*Test Driven Development
+Bug’ları uygulama PROD’a çıkmadan bulup, çözebilirsek maliyetleri de o kadar azaltabilme şansına sahip oluruz.
+TDD’de bunun için mutlaka ama mutlaka test ilk sırada yazılmalıdır.
+Elimizde otomatize testlerimiz vardır, değişiklikler her defasında manuel test edilmek zorunda kalınmaz
+Önce kodu yazıp sonradan bunların testini yazmak TDD olmaz.
+1. Bir test yazılır.
+2. Test başarısız olur.
+3. Test başarılı hale getirilir.
+4. Mevcut bütün testlerin başarılı olması sağlanır.
+5. Kod refactor edilir. Yani kodda iyileştirme ve(ya) temizleme yapılır.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*Reflection (yansıtma):
+Runtime da o anki sanal makinede olan sınıflara, bunların metodlarına ve değişkenlerine erişebiliriz.
+Yani bir sınıfa ait olan değişken ve metod tanımlamalarının hepsini java.lang.reflect kütüphanesi ile tespit edebiliriz.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Lambda Functions: Bu fonksiyonlar başka bir fonksiyona argüman olarak iletilebilir.
+  Böylece, bir tarafta tanımlanan iş birimi, diğer bir iş biriminde koşturulabilir.
+	app.fonk(2, 3, (a, b) -> a + b);
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*responsive -uyumlu- olayı 2 şekilde gerçekleşir:
+1- Genişliği esnek verirsin (%) kullanımı gibi.
+2- media queries kullanımı yani sizin şu ekran genişliğin de şu olsun,şu genişlikte şu olsun olayını yapmak için.
+------------------------------------------------------------------------------------------------------------------------------------------------
+*SOAP Servisler:
+SOAP datayı transfer etmek için kullanılır.XML datayı bir format içinde sunma şeklidir.
+WSDL kullanıma açık olan servisleri tanımlamak için kullanılır.
+UDDI ise hangi servislerin kullanıma hazır olduğunu belirtmek için kullanılır. 
+
+Bu teknoloji uygulama geliştirme dilinden de bağımsızdır. 
+Web servislerin temelinde ortam, mimari ya da programlama dili gözetmeksizin iki programı haberleştirmek vardır.
+JAX-WS Javanın, SOAP(Simple Object Access Protocol) web servisleri geliştirmek için arayüzü. yani bir API'dir.
+Vakti zamanında Javanın RPC(Remote Procedure Call) kütüphanesinin yerine geçmek için geliştirilmiştir.
+
+WS-I (Web Services Interoperability) bir web servis standartı olarak düşünülebilir.
+Web servislerin ürettiği arayüzlerin aynı ya da benzer olması gerekmektedir. 
+İşte WS-I bu arayüzlerin yani WSDL dosyalarının nasıl olması gerektiğini tanımlamaktadır. 
+Şu anda aktif olarak kullanılan Kodlama Çeşitlerine göre WSDL lar dan WS-I tarafından desteklenenler:
+    RPC/literal
+    Document/encoded
+    Document/literal
+Bu sebepten kullanacağınız JAX-WS kütüphanesi de bu üç tip kodlama imkanı sağlamaktadır. 
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*RESTful: (Representational State Transfer) İstemci-sunucu mimarisinde, katmanlı, cachelenbilir ve tek tip 
+	bir arayüz içeren web hizmetleri oluşturmaya yarayan bir mimari stildir.
+*REST'de resource kavramı: Bir URL aracılığıyla erişilen bir nesneyi, verilerini, ilşkilerini ve 
+	üzerinde çalışan metotları temsil eden soyut bir kavramdır.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*Rest ile Soap Farkı
+Güvenlik: SOAP üzerinde güvenlik(security) sağlamak daha kolay ve hızlı şekilde olabiliyorken, bu durum REST için karmaşık olabiliyor.
+Data Yapısı: REST ile JSON, XML hatta TEXT ile çalışabiliyorken, SOAP ile XML kullanmalıyız. REST bu sayede daha kullanışlı olabiliyor. 
+			 JSON ile daha küçük boyutlarda verilerle işlemler gerçekleştirebiliyorsunuz. Eğer data boyutları uygulamanız için önem arz ediyorsa REST kullanmak sizin için uygun olacaktır.
+Uygulama Hızı: Uygulamanızın daha hızlı çalışmasını istiyorsanız REST kullanmanız yararınıza olacaktır.
+Destek: SOAP için geliştirici araçları daha iyidir. Kullanmamız için bize yardımcı olacak daha çok kaynak bulabiliriz. REST’in dökümantasyonu SOAP’a göre daha azdır.
+
+HTTP kullanımına(HTTP 2) yönelik ikinci bir model -> gRPC
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*Spread operator: Dizi alır ve farklı şekillerde çağrılabilir.
+
+public void myMethod(String... strings){
+    // method body
+}
+
+--> Bu parametre String dizisi alır ve Şu şekillerde çağrılabilir:
+myMethod(); // Likely useless, but possible
+myMethod("one", "two", "three");
+myMethod("solo");
+myMethod(new String[]{"a", "b", "c"})
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*Sıralama Algoritmaları:
+1-Bubble	: n2 -> 2 elemanı alıp küçüğü sola büyüğü sağa yazarak diziyi dolanır.
+2-Selection	: n2 -> en küçüğü bulup ilkle yer değiştirerek diziyi dolanır.
+3-Insertion	: n2 veya çoğu sıralıysa n
+4-Quick		: n2 veya n(log n)
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*Trigger:
+İlişkisel veri tabanı yönetim sistemlerinde bir tabloda ekleme, güncelleme, silme işlemlerinden biri gerçekleşmeden önce veya sonra çalışan yordamdır.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*NESTED SORGU: SELECT * FROM NDV_USER_CHANNELS where channel_code = 'TB' and client_no not in( SELECT client_no FROM NDV_USER_CHANNELS where channel_code = 'INT' or channel_code = 'CARD'); 
+------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------
+*Yer imi olarak JS Çalıştırma
+javascript:(function(){
+document.getElementsByName("nationalIdentityNo")[0].value="38467147425";
+document.getElementsByName("mobileNumber")[0].focus;
+document.getElementsByName("mobileNumber")[0].value="5442812255";
+document.getElementsByName("agreedPolicy")[0].checked=true;
+})();
+------------------------------------------------------------------------------------------------------------------------------------------------
+*DB connection pool exception:
+Connection pool un dolmuş olması önemli bir sorun. Hibernate'de genelde session oluşturulduktan sonra flush edilmediği durumlarda bu sorunu yaşıyoruz.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*OleDbCommand nesnesi: SQL cümleciği kullanarak veri kaynağındaki tablolarda sorgulama yapmamızı sağlar. 
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*XOR Swap: bitsel operator: 
+XOR operatörünün sonucu ancak ve ancak her iki operand da birbirinden farklıysa 1 değerini almaktadır.
+Bu sonuç bize şifreleme algoritmasında büyük bir kolaylık sağlayacaktır. 
+a = a ^ b;
+b = a ^ b;
+a = a ^ b;
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Pass-by-reference: Parametrenin gerçek adresini geçmek 
+Pass-by-value  	 : parametrenin sadece değerini bir kopya ile geçmek. Java pass-by-value ‘dir.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Immutable Objects:
+Değişmez nesneler zamanla iç durumlarını değiştirmezler, bu yüzden onu birden fazla 
+iş parçacığı arasında güvenli bir şekilde paylaşabiliriz. String class'ı gibi.
+Değişmez bir nesnenin API'sini oluşturmak için, nesne içindeki attribute'lar final keyword'ü ile oluşmalıdır ve
+sadece get metotlarına sahip olurlar.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+"this" anahtar kelimesi: Aynı sınıfa ait olan field’lara, metotlara ve constructor’lara erişebilirsiniz.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*AJAX:
+Tüm sayfayı yinelemeden kısmi yineleme sağlayan yapıdır. 
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*Spring frameworkün son versiyonu 6 tip scope içerir:
+ Not: Son 4'ü yalnızca web uygulamalarında kullanılır.
+
+1-singleton: Container bean in tek bir örneğini yaratır, bu bean adıyla yapılan tüm istekler aynı nesneyi döndürür.
+			 Nesnede yapılan herhangi bir değişiklik, tüm referanslara yansıtılacaktır. 
+			 Başka bir scope belirtilmezse, bu scope varsayılandır.
+		ÖRNEK:
+		--bean tanımı	 
+			 @Bean
+			 @Scope("singleton") veya  @Scope(value = ConfigurableBeanFactory.SCOPE_SINGLETON)
+			 public Person personSingleton() {
+				return new Person();
+			 }
+		--personSingletonA da yapılan değişikliğin personSingletonB ye yansıması beklenir:	 
+			 public void givenSingletonScope_whenSetName_thenEqualNames() {
+				ApplicationContext applicationContext = 
+				new ClassPathXmlApplicationContext("scopes.xml");
+ 
+				Person personSingletonA = (Person) applicationContext.getBean("personSingleton");
+				Person personSingletonB = (Person) applicationContext.getBean("personSingleton");
+ 
+				personSingletonA.setName(NAME);
+				Assert.assertEquals(NAME, personSingletonB.getName());
+ 
+				((AbstractApplicationContext) applicationContext).close();
+			}
+		--scopes.xml:	
+			<?xml version="1.0" encoding="UTF-8"?>
+			<beans xmlns="http://www.springframework.org/schema/beans"
+				xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				xsi:schemaLocation="http://www.springframework.org/schema/beans 
+				http://www.springframework.org/schema/beans/spring-beans.xsd">
+ 
+				<bean id="personSingleton" class="org.baeldung.scopes.Person" scope="singleton"/>    
+			</beans>
+			 
+
+2-prototype: Prototype scopa sahip bean containerdan her talep edildiğinde farklı bir nesne döndürür.
+		ÖRNEK:
+		Singleton örneğinden tek farkı her defasında farklı nesne oluştuğu için bir nesnedeki değişiklik diğerlerine yansımayacaktır.
+3-request
+4-session
+5-application
+6-websocket
+-----------------------------------------------------------------------------------------------------------------------------------------------
+* String concat yöntemleri performans sırası:
+Mutable olanlar(StringBuilder > StringJoiner > StringBuffer) 
+> 
+Immutable olanlardan(+ operator > String.join() > concat() > Stream API > String.format())
+-----------------------------------------------------------------------------------------------------------------------------------------------
+DOMAİN DRİVEN ARCHITECTURE:
+Karmaşık iş gereksinimlerini tasarlamak için bir yaklaşımdır. Stratejik tasarım ve Taktik tasarım adımları var.
+1- Stratejik tasarımda sistemin sahip olduğu tüm alt domainleri, bunlar arasındaki ilişkileri ve bounded contextleri belirleriz.
+ Bounded context: Sistem içinde mantıksal terimlerin tutarlı olduğu bir bölümü temsil eder. İdealde her bir alt domain
+ bir sınırlı bağlama eşlenir. Yine stratejik tasarımda iş gereksinimlerini ifade eden terimler, kodda da kullanılarak
+ teknik ekibin koddaki terimleri ile iş paydaşlarının kavramları arasında ortak bir dil oluşturmaya çalışılır.
+
+2-Taktik tasarımda Domainler'in nesneleri belirlenir ve bounded context'lerin detayına ineriz.
+ Entity ve value nesneleri, Aggregate'ler, Domain Servisleri ve Domain Events'ler oluşturulur.
+ Entity, bir iş domain'i içinde anlam ifade eden ve bir id'si olan, değiştirilebilir nesnelerdir.
+ Varlık nesnelerinin ise kimliği yoktur ve immutable'dır. Genellikle entity'lerin bir özelliği gibi kullanılabilirler. Adres ve Currency gibi.
+ Aggregate: Birbirleriyle ilişkili olan entity ile varlık objelerinin tutarlı bir bütünü temsil eden koleksiyonudur.
+  Aggregate'ler root bir nesne tarafından yönetilir. Bu root, aggregate'ın dış dünyayla etkileşimini sağlar ve diğer nesneleri yönetir. 
+  Mesela e-ticaret için müşteriye ait siparişleri temsil eden bir koleksiyon Aggregate olabilir. 
+  Bir OrderAggregateRoot Order entity listesini yönetir. Order ise Customer,
+  OrderItem entityleri ile DateTime gibi bir value nesnesinden oluşabilir.
+ Domain Servisleri: Aggregate veya Entity içinde yer almaması gereken işlemleri temsil eder. 
+  Bu işlemler doğrudan bir Aggregate veya Entity'nin sorumluluğunda olmamalıdır. Ödeme Servisi gibi.
+ Domain Eventler: Domain'inde gerçekleşen olayları temsil eder. Bağımlılıkları azaltmaya yarar. 
+  Önemli durum veya değişiklikleri farklı bileşenlere bildirmede kullanılır.
+  Örneğin, bir siparişin tamamlanması, müşterinin kaydedilmesi vb.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+* Pessimistic Lock: işlem yapılan row db de lock'lanır. pessimistic lock deadlock'lara sebep olabilir. 
+	Çok fazla senkron istek alan işlemlerde tercih edilmemeli. 
+  Optimistic Lock: herhangi bir lock işlemi olmaz. Verinin bayat olup olmadığı bir versiyon numarası 
+	sütunu ile kontrol edilir. Veri bayat ise hata fırlatılır.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+* Nesne karşılaştırma:
+== operatörü karşılaştırdığımız 2 referansın hafızadaki aynı örneğe işaret edip etmediğini kontrol eder.
+Person person1 = new Person("Mike", 34);
+Person person2 = new Person("Mike", 34);
+System.out.println ( person1 == person2 );  --> will print false!
+
+Eğer fieldları eşit iki obje eşit kabul edilecekse equals() override edilmelidir.
+Çünkü default equals() Object sınıfından gelir ve == operatörü ile aynı şekilde davranır. Önemli nokta
+equals()'ı override eden her sınıfta hashCode()'u da override etmek gerekir.
+Çünkü eğer iki nesne eşitse hashcode'ları da eşit olmalıdır. Bunu yapmamak,
+o sınıfın HashMap ve HashSet gibi collectionlarla birlikte düzgün
+şekilde çalışmasını engelleyecektir. HashMap ve HashSet gibi collectionlar, nesnenin
+nasıl saklanması gerektiğini belirlerken ve nesnenin yerini bulmak için onun hashcode değerini kullanır.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+*API Gateway (API Geçidi) Pattern:
+Mikroservislerin dış dünya ile iletişimini merkezi hale getirir, böylece istemciler tek bir giriş noktası
+üzerinden hizmet alır. Kullanıcılar veya diğer sistemler, mikroservislere erişim sağlamak için
+API Gateway'e yönlendirilir. API Gateway'de, gelen istekleri doğru mikroservislere yönlendirir,
+yük dengelemesi yapar, güvenlik (kimlik doğrulama ve yetkilendirme),caching (önbellek) gibi işlemleri yönetir.
+
+* Service Discovery (Servis Keşfi) Pattern:
+Mikroservislerin dinamik olarak birbirini bulabilmesini sağlayan patterndir. Bir servis, çalıştığı IP adresini
+veya port numarasını merkezi bir servis keşif sunucusuna kaydeder, diğer mikroservisler de bu servisi 
+keşif sunucusu üzerinden keşfederek ona bağlanır. Consul, Eureka veya Zookeeper gibi araçlar bu amaçla kullanılır.
+
+* Circuit Breaker (Devre Kesici)
+Sistemin bir bölümünde hata meydana geldiğinde bu hatanın yayılmasını engellemeyi sağlar. Eğer bir mikroservis
+belirli bir süre boyunca hatalı bir şekilde yanıt veriyorsa, devre kesici devreye girer ve hatalı mikroservisin
+diğerlerinden izole edilmesi sağlanır. Tüm sistemin çökmesi engellenir. 
+Hystrix veya Resilience4J gibi kütüphaneler kullanılabilir.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+Resilince4j:
+Circuit Breaker, Retry Mechanism ve Rate Limiting için kullanılabilen bir kütüphanedir.
+Circuit Breaker'daki statüler: closed,open ve half-open(belirli süre sonrasında sorunun kontrol edildiği durumdur)
+RateLimiter: bir süre boyunca alabileceği çağrı sayısını limitler
+Bulkhead: paralel olarak yapılacak çağrıları limitlemek için kullanılır
+TimeLimiter: Çağrının belli bir süreden sonra timeout’a düşmesi için kullanılır.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+**** Mikroservis mimaride transaction bütünlüğü için 2 pattern SAGA ve 2PC(Two phase commit)
+2PC Pattern ilgili service özelinde tek bir istek ile ACID prensiplerini yerine getirmeye çalışır.
+Veri tutarlılığının önemli olduğu yerlerde kullanılır. 
+SAGA ise birbirini bekleyen sıralı işlemlerin olduğu yapılarda kullanılmalıdır.
+
+*2PC(Two phase commit):
+Dağıtık veritabanlarında birden fazla mikroservisin aynı anda bir işlem gerçekleştirdiği durumlarda,
+işlemin başarıyla tamamlandığından emin olmak için kullanılır. Bu pattern'de iki ana aşama vardır:
+Hazırlık Aşamasında bir koordinatör tüm katılımcı mikroservislere işlem için onay verme (commit
+ya da iptal etme (rollback) kararını iletir. Katılımcılar işlem üzerinde herhangi bir engel olup
+olmadığını kontrol eder ve ona göre yanıt verir. Karar Aşamasında eğer tüm katılımcılar işlem için
+"commit" dediyse, işlem gerçekleştirilir. Eğer bir katılımcı "abort" dediyse,
+işlem tüm katılımcılarda geri alınır. Çok yaygın kullanılmaz çünkü tüm katılımcılardan yanıt
+alınmasının beklenmesi nedeniyle yavaştır. Ayrıca hataya dayanıklı olmayan bir çözümdür.
+Sistemde herhangi bir hata meydana geldiğinde tüm süreç bloke olabilir.
+Örneğin, bir mikroservis yanıt vermezse, diğer tüm katılımcılar beklemek zorunda kalır.
+Alterantifi SAGA olabilir.
+
+*SAGA:
+Bu tasarımda gelen istek ile daha sonraki her adım, bir önceki adımın başarılı şekilde
+tamamlanması sonrasında tetiklenir. Herhangi bir failover durumunda işlemi geri alma
+veya bir düzeltme aksiyonu sağlayan pattern’dir.
+Örneğin ilk servis işini icra ettikten sonra bir event fırlatır(RabbitMQ, Kafka vb. tool kullanılır)
+ve bu event’ı dinleyen servis veya servisler tetiklenerek kendi local transaction’larını çalıştırır.
+
+1-Orchestration-Based Saga->
+Tüm işlemleri yöneten bir Saga orchestrator vardır. Bu orchestrator subscribe olan tüm servislere
+ne zaman ne yapacağını ileten bir producer’dır. Olası bir failover durumunda, işlemleri geri almak
+için subscribe olmuş tüm servislere geri alma mesajı iletir. Subscribe olan servisler orchestratorü
+çağırmamalıdır. Rollback yönetimi basittir.
+Dezavantajı-> Fazladan orchestrator service’i yönetmeniz gerekir.
+
+2-Choreography-Based Saga->
+Merkezi bir yönetici yoktur. Her servis işlemini tamamlar ve sonraki servisi için bir event fırlatır.
+Bir sonraki servis ilgili eventi consume edip sürecine devam eder. Bir serviste hata olması durumunda
+rollback işlemi için o servis yeni event fırlatır ve bu eventi dinlemesi gereken servisler onu consume eder.
+Servisler arası mesajlaşmanın sağlıklı olması için Outbox pattern uygulanabilir.
+Dezavantajı-> Süreç uzunsa hangi servisin hangi event’leri dinlediğini takip etmek zorlaşır.
+			  Servislerin birbirine subscribe olmaları gerektiğinden döngüsel bağımlılıklar olabilir.
+
+*Event Sourcing:
+Klasik veri kayıt yönteminde sadece veriye ait son durum kaydedilir ancak bu yöntemde
+verideki tüm state değişiklikleri (örneğin bir ürünün adının değişmesi veya eklenmesi gibi)
+ayrı bir veri tabanına (event store) bir olay (event stream) olarak kaydedilir.
+Bu olay kayıtları değiştirilemez ve silinemez. Event’ler farklı bir veri tabanında ve
+bu event’lerden oluşan asıl varlık verisi (projection) ise ayrı bir veri tabanında tutulur.
+Asıl varlık durumu eventlerin bir asenkron mesajlaşma aracı üzerinden
+alınmasıyla güncellenir. Asıl varlık veri tabanı çöktüğünde event’ler tekrar oynatılarak
+asıl varlık verisi elde edilebilir. Bu event-sourcing’i loglamadan ayıran ve
+debugging süreçlerini kolaylaştıran bir özelliktir. Bu yöntemde ekstra loglama gerekmez. 
+Event store olarak EventStoreDB gibi bu işe özel bir db kullanılabilir.
+Yüksek yazma performansı sağladığı için NoSQL db'ler de tavsiye edilir ancak veri tutarlılığının
+çok ön planda olduğu duurmlarda SQL db'lerde tercih edilebilir.
+CQRS pattern ile birlikte kullanımı yaygındır.
+Dezavantajları-> 
+Kod karmaşıklığını artırır. Event bazlı bir yapıda uygulama kuyrukta yer alan
+hataları ve tekrarlanan işlemleri yönetebilmelidir. Olası failover senaryoları düşünülmezse
+veri kaybı veya daha büyük sorunlarla karşılaşılabilir.
+
+Örnek-1-> Bir satranç uygulamasında hamlelerin kaydedilerek istendiğinde oyunun
+her adımını gösterebilmek ve belirli bir adıma dönebilmeyi sağlamak.
+
+Örnek-2-> Banka hesap kayıtları. Hesaptaki bakiye, para çekme ve yatırma gibi işlemlerden
+üretilebilen bir bilgidir. Her bir işlem ayrı birer kayıt olarak saklanır.
+Her bakiye sorgulamasında baştan itibaren tüm event kayıtları çekilip hesaplama yapılmaz.
+İşlemin hızlı olabilmesi için projection yapılmıştır, Diyelim ki bakiye bilgisinde hata var,
+bu durumda geçmişten bugüne kadar tüm işlemler hesaplanarak bakiye tekrar oluşturulabilir.
+
+*CQRS:
+Repository'e pattern'e göre CQRS, command’lar (insert/update/delete) ve query’ler
+arasında geri dönüş tipleri farklı olduğu için bu işlemleri birbirinden ayırmayı
+ve farklı veri tabanlarına kaydetmeyi önerir. Command işlemlerinde genellikle sadece
+başarılı olma durumunu bekleriz, bu nedenle geri dönüş tipleri query’lerden farklıdır.
+Bunları ayırmak single responsibility prensibine uyumu artırır. En önemlisi farklı veri tabanları
+kullanımına olanak tanır ve böylece performans'ı artırma imkanı sunar.
+Ayrıca ouma ve yazma için ayrı ölçekleme ve izleme imkanı sağlar.
+Command ve Query veri tabanlarını birbirinden ayırınca veri tutarlılığı için
+asenkron mesajlaşma ve bir mesaj broker kullanma yöntemi önerilir.
+Örneğin, bir product entity’sinin kaydedilmesi durumunda bu bilgi RabbitMQ üzerinden
+iletiler ve okuma veri tabanında da güncelleme yapabilir.
+Yüksek veri trafiğinin olduğu sistemlerde kullanılabilir.
+Basit CRUD işlemlerinin yapıldığı sistemlerde kullanımına gerek yoktur.
+
+Outbox Pattern:
+Asenkron iletişim kuran sistemlerde, bir serviste hem bir işlem için db'ye kayıt atıyor hem
+de sonrasında diğer servislere bununla ilgili bir mesaj gönderimi yapıyorsak mesajın ulaşmasını
+garantilemek ve veri tutarlılığını sağlamak için "aynı transaction içinde" mesajı da outbox
+adı verdiğimiz bir tabloya kayıt atarız. Belirli aralıklarla çalışıp outbox tablosunu dinleyen
+bir publisher aracılığıyla bu mesaj hedef servise gönderilir. Böylece olumsuz durumlarda durum
+düzelip bağlantı tekrardan kurulunca hedef noktaya mesajın tekrardan gönderilmesi sağlanabilir.
+Bir sipariş verildikten sonra kullanıcıya e-posta gönderme senaryosu gibi durumlarda kullanılabilir.
+Bu senaryoda outbox db ile publisher arasında da bir sorun olabilir. O da mesajın okunduğu ama
+outbox tablosunda işaretleme yapılamadığı senaryodur. Bu durumda tablodan mesaj tekrar okunabilir.
+Bunu engellemek için ise bir mesaj birden çok kez yayınlansa dahi consumer’lar açısından aynı
+etkiye sahip olması sağlanmalı yani idompotents(etkisiz) olmalıdır. Her bir mesaj için unique
+bir id üretilmeli ve böylece consumer’lar tarafından id kontrol edilerek mesaj işlenmelidir.
+Bunu da Inbox pattern ile yaparız. Consumer mesajı alınca bir inbox tablosuna id'yi kontrol edip
+yazar. Asıl işi yapacak consumer servis bu tabloyu dinleyip asıl işi transactional olarak yapar.
+Dezavantajı-> 
+Publisher uygulamasının outbox tablosunu sorgulama zaman aralığı azaldıkça db'ye maliyeti artar.
+publisher uygulamasını scale etmek istersek aynı kaydın 2 defa işlenmesini lock gibi yöntemlerle
+engellemeliyiz. 
+Event sourcing’e benzese de outbox pattern’de veriye ait kayıtlar işledikten sonra silinir
+veya güncellenebilir ama event sourcing’de tüm olaylar kayıt altına alınır ve değişmez. 
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+* Find max frequency:
+static int mostFrequent(int arr[]){          
+    // Insert all elements in hash 
+    Map<Integer, Integer> hp = new HashMap<Integer, Integer>(); 
+          
+    for(int i = 0; i < arr.length; i++) 
+    { 
+        int key = arr[i]; 
+        if(hp.containsKey(key)) 
+        { 
+            int freq = hp.get(key); 
+            freq++; 
+            hp.put(key, freq); 
+        } else { 
+            hp.put(key, 1); 
+        } 
+    } 
+          
+    // find max frequency. 
+    int max_count = 0, res = -1; 
+      
+    for(Entry<Integer, Integer> val : hp.entrySet()) 
+    { 
+        if (max_count < val.getValue()) 
+        { 
+            res = val.getKey(); 
+            max_count = val.getValue(); 
+        } 
+    }
+		
+    return res; 
+} 5hu5q32ehu32eu
+-----------------------------------------------------------------------------------------------------------------------------------------------
+LİDERLİK:
+
+5 Kişilik CRM yazılım geliştirme ekibine liderlik ediyorum. 
+Product'un sprinte alacağı işlerin refirement'ini ekiple beraber yapıyoruz. 
+Benchmark yapıyor ve sistemimizi güncel teknolojiler seviyesine getirmeye çalışıyorum. 
+Mimari analiz ve tasarım yapıp ekibimi doğru şekilde kodlama yapmasını sağlıyorum. 
+Beraber çalışarak ve code review süreçlerinde ekibimin gelişmesine katkı sağlıyorum. 
+Takımımı know-how'un eşit olarak dağıtılmasında, self-managed team olmasında
+ve eğitim konusunda destekliyorum.
