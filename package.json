@@ -5,7 +5,7 @@
   "homepage": "https://erkanekici.com",
   "dependencies": {
     "core-js": "^3.0.0",
-    "gh-pages": "2.0.1",
+    "gh-pages": "5.0.0",
     "howler": "^2.2.0",
     "prop-types": ">= 15.0.0",
     "react": "^16.8.3",
